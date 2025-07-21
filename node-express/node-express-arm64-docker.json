@@ -1,0 +1,99 @@
+[
+    {
+        "Id": "sha256:06734d5adbdccdc074e46bf351380956a9869bf0ca191a2de3f3de33c6de5493",
+        "RepoTags": [
+            "node-express:benchmark-arm64"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-07-21T19:02:58.826616053Z",
+        "Container": "",
+        "ContainerConfig": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "appuser",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=22.16.0",
+                "YARN_VERSION=1.22.22",
+                "NODE_ENV=production",
+                "OTEL_SERVICE_NAME=craftista-frontend",
+                "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                "OTEL_TRACES_SAMPLER=always_on"
+            ],
+            "Cmd": [
+                "npm",
+                "start"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 374713070,
+        "VirtualSize": 374713070,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/qybhx47t4qoyf1v74sactjwym/diff:/var/lib/docker/overlay2/u6ps9nwo8z485qk80zw7szwix/diff:/var/lib/docker/overlay2/ifxg34k7pzj6dsm377i66y98p/diff:/var/lib/docker/overlay2/d2780d403a9ba3e6f130d28967b56735a3eaf36a4e5fd488586c4bb6a03b4489/diff:/var/lib/docker/overlay2/11b15dce6703fbb4fca7c3636c1de9bc3c9aa81d2c0ff1e365359de4e602f15d/diff:/var/lib/docker/overlay2/fbbdd7fe250fd7d1dc98bf0901f723af40332b9593b8c14dbbb49a16cd99803d/diff:/var/lib/docker/overlay2/bb6acb7fec6cdc283d3745bf20c49449b5f9091d5ffc118ea37ae99de3d4c9c7/diff",
+                "MergedDir": "/var/lib/docker/overlay2/3bfxgceq45e7zzyb4l6iftase/merged",
+                "UpperDir": "/var/lib/docker/overlay2/3bfxgceq45e7zzyb4l6iftase/diff",
+                "WorkDir": "/var/lib/docker/overlay2/3bfxgceq45e7zzyb4l6iftase/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:1231a673589ac9e2f8a98ed916d1fa8301b36a44dd14fc40eba5a05905da69f1",
+                "sha256:80fb63898530e6e4e9611ad63908ca2177f54a81f93093664abc7f597fea1527",
+                "sha256:03498b333b2d57485dcc4cdb5e8520acdb5eee2a3f2b6e965bfc1670b1c0227b",
+                "sha256:95f4443d0f51a9c4173e305625d602d56228f26719d049790fb0d439165e65cc",
+                "sha256:05fd74d0fb1dff51b724105466cbc76743e4a8a41d99a0810213b9ca81db1283",
+                "sha256:e39874552b7d0aadef21320f3f6e3a5998c949e72b6496a67bb90f7523c0b1f5",
+                "sha256:0f63e2710641781ba202a5215338b96129311dd2c174e700eacf1ba43c9e4636",
+                "sha256:7e68df990d874d82e3631c0872069ee975ac309fbd8ad6269f0a368ac0cbefbe"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-21T19:02:59.84933347Z"
+        }
+    }
+]

@@ -1,0 +1,177 @@
+[
+    {
+        "variants": [
+            {
+                "size": 79219384,
+                "platform": {
+                    "os": "linux",
+                    "architecture": "arm64"
+                },
+                "config": {
+                    "config": {
+                        "Cmd": [
+                            "npm",
+                            "start"
+                        ],
+                        "User": "appuser",
+                        "Env": [
+                            "PATH=\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
+                            "NODE_VERSION=22.16.0",
+                            "YARN_VERSION=1.22.22",
+                            "NODE_ENV=production",
+                            "OTEL_SERVICE_NAME=craftista-frontend",
+                            "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
+                            "OTEL_TRACES_SAMPLER=always_on"
+                        ],
+                        "Entrypoint": [
+                            "docker-entrypoint.sh"
+                        ],
+                        "WorkingDir": "\/app"
+                    },
+                    "os": "linux",
+                    "created": "2025-05-30T22:21:12Z",
+                    "architecture": "arm64",
+                    "rootfs": {
+                        "diff_ids": [
+                            "sha256:1231a673589ac9e2f8a98ed916d1fa8301b36a44dd14fc40eba5a05905da69f1",
+                            "sha256:80fb63898530e6e4e9611ad63908ca2177f54a81f93093664abc7f597fea1527",
+                            "sha256:03498b333b2d57485dcc4cdb5e8520acdb5eee2a3f2b6e965bfc1670b1c0227b",
+                            "sha256:95f4443d0f51a9c4173e305625d602d56228f26719d049790fb0d439165e65cc",
+                            "sha256:e601f941ec6e28ddc7c4d8a0411828907d64d0bfbebccc8b16c36773c9006053",
+                            "sha256:936316eb78a86ab15d0a7f917edccdfeb10a90c07f5407e728c63041f380a04b",
+                            "sha256:af8308ae30ea892df40f8163f9f164164ed4b0010e4f9aa889b4f68970b7a9bc",
+                            "sha256:016eacc9187ba9c587e20cdee933960427db8784fb362f3a9b84f9b9d1bd46c2"
+                        ],
+                        "type": "layers"
+                    },
+                    "history": [
+                        {
+                            "created": "2025-05-30T16:20:41Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "ADD alpine-minirootfs-3.22.0-aarch64.tar.gz \/ # buildkit"
+                        },
+                        {
+                            "created": "2025-05-30T16:20:41Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "CMD [\"\/bin\/sh\"]"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV NODE_VERSION=22.16.0"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "RUN \/bin\/sh -c addgroup -g 1000 node     && adduser -u 1000 -G node -s \/bin\/sh -D node     && apk add --no-cache         libstdc++     && apk add --no-cache --virtual .build-deps         curl     && ARCH= OPENSSL_ARCH='linux*' && alpineArch=\"$(apk --print-arch)\"       && case \"${alpineArch##*-}\" in         x86_64) ARCH='x64' CHECKSUM=\"757e2a142474fdae1ab4392d50f3cbb215ca17a9e3c3fa54e5b9a9af27a47c54\" OPENSSL_ARCH=linux-x86_64;;         x86) OPENSSL_ARCH=linux-elf;;         aarch64) OPENSSL_ARCH=linux-aarch64;;         arm*) OPENSSL_ARCH=linux-armv4;;         ppc64le) OPENSSL_ARCH=linux-ppc64le;;         s390x) OPENSSL_ARCH=linux-s390x;;         *) ;;       esac   && if [ -n \"${CHECKSUM}\" ]; then     set -eu;     curl -fsSLO --compressed \"https:\/\/unofficial-builds.nodejs.org\/download\/release\/v$NODE_VERSION\/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\";     echo \"$CHECKSUM  node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" | sha256sum -c -       && tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C \/usr\/local --strip-components=1 --no-same-owner       && ln -s \/usr\/local\/bin\/node \/usr\/local\/bin\/nodejs;   else     echo \"Building from source\"     && apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         gnupg         libgcc         linux-headers         make         python3         py-setuptools     && export GNUPGHOME=\"$(mktemp -d)\"     && for key in       C0D6248439F1D5604AAFFB4021D900FFDB233756       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       A363A499291CBBC940DD62E41F10027AF002F8B0     ; do       gpg --batch --keyserver hkps:\/\/keys.openpgp.org --recv-keys \"$key\" ||       gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;     done     && curl -fsSLO --compressed \"https:\/\/nodejs.org\/dist\/v$NODE_VERSION\/node-v$NODE_VERSION.tar.xz\"     && curl -fsSLO --compressed \"https:\/\/nodejs.org\/dist\/v$NODE_VERSION\/SHASUMS256.txt.asc\"     && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     && gpgconf --kill all     && rm -rf \"$GNUPGHOME\"     && grep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     && tar -xf \"node-v$NODE_VERSION.tar.xz\"     && cd \"node-v$NODE_VERSION\"     && .\/configure     && make -j$(getconf _NPROCESSORS_ONLN) V=     && make install     && apk del .build-deps-full     && cd ..     && rm -Rf \"node-v$NODE_VERSION\"     && rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi   && rm -f \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"   && find \/usr\/local\/include\/node\/openssl\/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;   && apk del .build-deps   && node --version   && npm --version   && rm -rf \/tmp\/* # buildkit"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV YARN_VERSION=1.22.22"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "RUN \/bin\/sh -c apk add --no-cache --virtual .build-deps-yarn curl gnupg tar   && export GNUPGHOME=\"$(mktemp -d)\"   && for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     gpg --batch --keyserver hkps:\/\/keys.openpgp.org --recv-keys \"$key\" ||     gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" ;   done   && curl -fsSLO --compressed \"https:\/\/yarnpkg.com\/downloads\/$YARN_VERSION\/yarn-v$YARN_VERSION.tar.gz\"   && curl -fsSLO --compressed \"https:\/\/yarnpkg.com\/downloads\/$YARN_VERSION\/yarn-v$YARN_VERSION.tar.gz.asc\"   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && gpgconf --kill all   && rm -rf \"$GNUPGHOME\"   && mkdir -p \/opt   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C \/opt\/   && ln -s \/opt\/yarn-v$YARN_VERSION\/bin\/yarn \/usr\/local\/bin\/yarn   && ln -s \/opt\/yarn-v$YARN_VERSION\/bin\/yarnpkg \/usr\/local\/bin\/yarnpkg   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   && apk del .build-deps-yarn   && yarn --version   && rm -rf \/tmp\/* # buildkit"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "COPY docker-entrypoint.sh \/usr\/local\/bin\/ # buildkit"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]"
+                        },
+                        {
+                            "created": "2025-05-30T22:21:12Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "CMD [\"node\"]"
+                        },
+                        {
+                            "created": "2025-07-21T20:30:53.566549426Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "RUN \/bin\/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h \/home\/appuser appuser &&     rm -rf \/var\/cache\/apk\/* # buildkit"
+                        },
+                        {
+                            "created": "2025-07-21T20:30:53.613470051Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "WORKDIR \/app"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:07.386661125Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "USER appuser"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:07.386661125Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "COPY --chown=appuser:appuser \/build\/node_modules .\/node_modules # buildkit"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "created_by": "COPY --chown=appuser:appuser . . # buildkit"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV NODE_ENV=production"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV OTEL_SERVICE_NAME=craftista-frontend"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "ENV OTEL_TRACES_SAMPLER=always_on"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "EXPOSE map[3000\/tcp:{}]"
+                        },
+                        {
+                            "created": "2025-07-21T20:31:09.077378418Z",
+                            "comment": "buildkit.dockerfile.v0",
+                            "empty_layer": true,
+                            "created_by": "CMD [\"npm\" \"start\"]"
+                        }
+                    ]
+                }
+            }
+        ],
+        "index": {
+            "digest": "sha256:cc01f631dc6c8f6ca0ac6c076311277d1d8b86985afa6a1148d6b19390699e9b",
+            "size": 375,
+            "annotations": {
+                "io.containerd.image.name": "docker.io\/library\/node-express:benchmark-arm64",
+                "com.apple.containerization.image.name": "node-express:benchmark-arm64",
+                "org.opencontainers.image.created": "2025-07-21T20:31:11Z",
+                "org.opencontainers.image.ref.name": "benchmark-arm64"
+            },
+            "mediaType": "application\/vnd.oci.image.index.v1+json"
+        },
+        "name": "node-express:benchmark-arm64"
+    }
+]
