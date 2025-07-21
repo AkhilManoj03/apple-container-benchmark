@@ -1,0 +1,174 @@
+[
+    {
+        "index": {
+            "mediaType": "application\/vnd.oci.image.index.v1+json",
+            "digest": "sha256:75e6278b2621c383d2071042a982c339f34afa581eba673ece71d1dc022384fb",
+            "annotations": {
+                "io.containerd.image.name": "docker.io\/library\/rust-axum:benchmark-amd64",
+                "org.opencontainers.image.ref.name": "benchmark",
+                "com.apple.containerization.image.name": "rust-axum:benchmark-amd64",
+                "org.opencontainers.image.created": "2025-07-21T17:43:24Z"
+            },
+            "size": 375
+        },
+        "name": "rust-axum:benchmark-amd64",
+        "variants": [
+            {
+                "config": {
+                    "rootfs": {
+                        "diff_ids": [
+                            "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+                            "sha256:245d6100ae7343d6c488b94856b7cbe996226eab53a2e76369f9702263bf25b5",
+                            "sha256:3024699c1d2541e86d2acaaf510121bbb92e24fb0675e85a7288b7ddd983e2b2",
+                            "sha256:9e7429031e9690f9e69ad663dd247275f592fb0b06b92105aa4fa0312f08eebb",
+                            "sha256:afb95cccfc2f95720a7186782ac7e727cf3d2ef1f5caf71e8e9d4ad30df6afd4",
+                            "sha256:fe7493ee08f5253dc58e8ea2c121f3b701bde8406e70af1464853a48b27b710f",
+                            "sha256:bc14c9e46cb5736a0c47f9d98a1112bb4f175e9850a8afc1d9738225dd8480ff",
+                            "sha256:d728d6d3ed718619a97101f12c8ef209f8e1aabc6815d5f19d15e6623b35f519",
+                            "sha256:9f85382f1567b53fea41c2eee695071ad1ce82cb1ee60b55bf6c4144decc7f34"
+                        ],
+                        "type": "layers"
+                    },
+                    "config": {
+                        "Env": [
+                            "PATH=\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
+                            "RUST_LOG=info",
+                            "PORT=8082",
+                            "OTEL_SERVICE_NAME=authentication-api",
+                            "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
+                            "OTEL_TRACES_SAMPLER=always_on",
+                            "APP_VERSION=1.0.0",
+                            "DEPLOYMENT_ENVIRONMENT=production"
+                        ],
+                        "User": "appuser",
+                        "Entrypoint": [
+                            "\/app\/docker-entrypoint.sh"
+                        ],
+                        "WorkingDir": "\/app"
+                    },
+                    "architecture": "amd64",
+                    "os": "linux",
+                    "history": [
+                        {
+                            "created": "2025-07-15T11:01:16Z",
+                            "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz \/ # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-15T11:01:16Z",
+                            "created_by": "CMD [\"\/bin\/sh\"]",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:25:03.789154137Z",
+                            "created_by": "RUN \/bin\/sh -c apk add --no-cache ca-certificates libgcc openssl # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:25:03.99161772Z",
+                            "created_by": "RUN \/bin\/sh -c addgroup -g 1001 appuser &&     adduser -u 1001 -G appuser -s \/bin\/sh -D appuser # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:25:04.014423095Z",
+                            "created_by": "WORKDIR \/app",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:43:23.316926138Z",
+                            "created_by": "COPY \/app\/target\/release\/authentication-service \/app\/authentication-service # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:43:23.382501304Z",
+                            "created_by": "RUN \/bin\/sh -c mkdir -p \/app\/keys # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:43:23.393711096Z",
+                            "created_by": "COPY --chown=appuser:appuser docker-entrypoint.sh \/app\/docker-entrypoint.sh # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:43:23.480197013Z",
+                            "created_by": "RUN \/bin\/sh -c chmod +x \/app\/authentication-service \/app\/docker-entrypoint.sh # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "RUN \/bin\/sh -c chown -R appuser:appuser \/app # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "USER appuser",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "EXPOSE map[8082\/tcp:{}]",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV RUST_LOG=info",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV PORT=8082",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV OTEL_SERVICE_NAME=authentication-api",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV OTEL_TRACES_SAMPLER=always_on",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV APP_VERSION=1.0.0",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENV DEPLOYMENT_ENVIRONMENT=production",
+                            "comment": "buildkit.dockerfile.v0"
+                        },
+                        {
+                            "empty_layer": true,
+                            "created": "2025-07-21T17:43:23.571909013Z",
+                            "created_by": "ENTRYPOINT [\"\/app\/docker-entrypoint.sh\"]",
+                            "comment": "buildkit.dockerfile.v0"
+                        }
+                    ],
+                    "created": "2025-07-15T11:01:16Z"
+                },
+                "platform": {
+                    "architecture": "amd64",
+                    "os": "linux"
+                },
+                "size": 12137802
+            }
+        ]
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "Id": "sha256:16883053f535e428325ea2002fdba9b1c89b68d37a3ca3fcba17952558a2ab19",
+        "RepoTags": [
+            "rust-axum:benchmark-amd64"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-07-21T18:40:30.365706845Z",
+        "Container": "",
+        "ContainerConfig": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "appuser",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8082/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "RUST_LOG=info",
+                "PORT=8082",
+                "OTEL_SERVICE_NAME=authentication-api",
+                "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                "OTEL_TRACES_SAMPLER=always_on",
+                "APP_VERSION=1.0.0",
+                "DEPLOYMENT_ENVIRONMENT=production"
+            ],
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "/app/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 40165773,
+        "VirtualSize": 40165773,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/llo01h2ryvus9wpeqtz0ltpuh/diff:/var/lib/docker/overlay2/1ri7waxmuc6fqfxns506actv6/diff:/var/lib/docker/overlay2/yxjcmweysynjrzc8vjsai7c9g/diff:/var/lib/docker/overlay2/d79wko6va016291ql2u39ambn/diff:/var/lib/docker/overlay2/dz0qgeoxbxet91p09u2cc7fv1/diff:/var/lib/docker/overlay2/y8qnrxv43663okuuj4vo3qhoj/diff:/var/lib/docker/overlay2/mj043kqh6ycp3u0r5dzggqvcu/diff:/var/lib/docker/overlay2/bc94c49ef2160cba668b94509f025bba0949a8465234e9d2e3f94a3f248cddf0/diff",
+                "MergedDir": "/var/lib/docker/overlay2/hv2w5y2u39h9ozyxfojh6cs9c/merged",
+                "UpperDir": "/var/lib/docker/overlay2/hv2w5y2u39h9ozyxfojh6cs9c/diff",
+                "WorkDir": "/var/lib/docker/overlay2/hv2w5y2u39h9ozyxfojh6cs9c/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+                "sha256:9f3cefb55baed062bf1af9bb941b3578445f55f19f85f1c72d309ee72ed7665d",
+                "sha256:a851874e51887cd92305584c8f1f9a62da9ce50e991ae4d09c3ac98d1d88cbc9",
+                "sha256:6a60f59a2fdeced99c9761289f0a3a52c0337b992990fd493f77a507a09fc793",
+                "sha256:aa41ff330dee0bff217e38041e639beae3caeb986201d0e400703ff021b3ca64",
+                "sha256:54e6e83fd1eefa0d1a0c9ed4749234abeff4d4b26afe1abeaeddbb2bdea2a931",
+                "sha256:bbdae63fea52350ad09bb5444fce46fae4ef22d960cf07203374e0bcec743446",
+                "sha256:3691ada73979ff5c42f284d6c9e33b112b4aa049329591ac04fb67ff4cc3b96f",
+                "sha256:14f790112ba34ba888177528ac8d82eaae77b339d80097f3ac53ad6578e43707"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-21T18:40:30.453303429Z"
+        }
+    }
+]

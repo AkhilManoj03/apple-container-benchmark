@@ -1,0 +1,180 @@
+[
+    {
+         "Id": "2bc135acf9bcff015f3e9eddaa18e0830dcf3160818694bf027fde14864264c7",
+         "Digest": "sha256:e065b56c45c163c1982617f7581fbbb4743623f84a2c805caff0654ee5780c97",
+         "RepoTags": [
+              "localhost/rust-axum:benchmark-arm64"
+         ],
+         "RepoDigests": [
+              "localhost/authentication@sha256:e065b56c45c163c1982617f7581fbbb4743623f84a2c805caff0654ee5780c97"
+         ],
+         "Parent": "ea7cc86c93722a127e7a4fc706acf823b127fe674d3d2b8db7c663ab10e0de1b",
+         "Comment": "buildkit.dockerfile.v0",
+         "Created": "2025-07-21T20:13:22.912006748Z",
+         "Config": {
+              "User": "appuser",
+              "ExposedPorts": {
+                   "8082/tcp": {}
+              },
+              "Env": [
+                   "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                   "RUST_LOG=info",
+                   "PORT=8082",
+                   "OTEL_SERVICE_NAME=authentication-api",
+                   "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                   "OTEL_TRACES_SAMPLER=always_on",
+                   "APP_VERSION=1.0.0",
+                   "DEPLOYMENT_ENVIRONMENT=production"
+              ],
+              "Entrypoint": [
+                   "/app/docker-entrypoint.sh"
+              ],
+              "WorkingDir": "/app",
+              "Labels": {
+                   "io.buildah.version": "1.40.1"
+              }
+         },
+         "Version": "",
+         "Author": "",
+         "Architecture": "arm64",
+         "Os": "linux",
+         "Size": 41248643,
+         "VirtualSize": 41248643,
+         "GraphDriver": {
+              "Name": "overlay",
+              "Data": {
+                   "LowerDir": "/var/home/core/.local/share/containers/storage/overlay/a9a4505543d2071381503c3db05a992f7129da1705307a5e84596c18ccae3ef9/diff:/var/home/core/.local/share/containers/storage/overlay/1781f3df2fb25b39934587218e691e6c2d0e0ce1273b162883ce74bf44bed01d/diff:/var/home/core/.local/share/containers/storage/overlay/0883a642027d9612dc84566c2eac56a1f69ca0b1c9ba4a6dcaa4dd8a508b3000/diff:/var/home/core/.local/share/containers/storage/overlay/dd434dbfae6859997f3c1b0056c9650cc6315d67bc77f2bab3d4310c648debf6/diff:/var/home/core/.local/share/containers/storage/overlay/9927400a2dc1fead62718d6f0b903a8fbb79d25d9c0ab70739b1d2ac19e17f45/diff:/var/home/core/.local/share/containers/storage/overlay/58da4beb281ba37d362f4c5cd5610bc08f89e43a51e16578af104ee34bbf31d5/diff:/var/home/core/.local/share/containers/storage/overlay/0b83d017db6efafadf6b3f18d087d2ce1d67d8f0e927dc7254b0ad088074cd3a/diff",
+                   "UpperDir": "/var/home/core/.local/share/containers/storage/overlay/1da6d3a87b3b5fcb17a62cf997192c788c6a1568c8d098a8fa196ec488676329/diff",
+                   "WorkDir": "/var/home/core/.local/share/containers/storage/overlay/1da6d3a87b3b5fcb17a62cf997192c788c6a1568c8d098a8fa196ec488676329/work"
+              }
+         },
+         "RootFS": {
+              "Type": "layers",
+              "Layers": [
+                   "sha256:0b83d017db6efafadf6b3f18d087d2ce1d67d8f0e927dc7254b0ad088074cd3a",
+                   "sha256:bb9425339093381109ffa6d31491c667f29357c79d01605dbf340b0cc379d49a",
+                   "sha256:179c58847ec73d9e887d52f86e2318c054eeae7e47ebfa2e82d00df5a0086a16",
+                   "sha256:fa0b7e1894eed6b60894b4c26d8df4b3dcef923c2a9c270c8a99484c61cf5ad2",
+                   "sha256:cdfa8b7de638c999b0b62e623dcdc4d396ac03bfc8611c7501cc5d7fc5967cdf",
+                   "sha256:5adc917bdd8a6e00648c1685a0a18ba77997929fd86225c01673750031f21e1c",
+                   "sha256:bb6adcceb1c07f71446e99f116677282c87458f3d9cdd366517f4b28dada8c0e",
+                   "sha256:9deff7db1eae93a6ed6ce049b9f3f68a603cbe4f21f246a2403137d9177ea51c"
+              ]
+         },
+         "Labels": {
+              "io.buildah.version": "1.40.1"
+         },
+         "Annotations": {
+              "com.docker.official-images.bashbrew.arch": "arm64v8",
+              "org.opencontainers.image.base.digest": "sha256:4562b419adf48c5f3c763995d6014c123b3ce1d2e0ef2613b189779caa787192",
+              "org.opencontainers.image.base.name": "docker.io/library/alpine:3.22",
+              "org.opencontainers.image.created": "2025-07-15T11:01:16Z",
+              "org.opencontainers.image.revision": "01dd5fbd09e25f6c040627eedf18bbfccfa9ad6e",
+              "org.opencontainers.image.source": "https://github.com/alpinelinux/docker-alpine.git#01dd5fbd09e25f6c040627eedf18bbfccfa9ad6e:aarch64",
+              "org.opencontainers.image.url": "https://hub.docker.com/_/alpine",
+              "org.opencontainers.image.version": "3.22.1"
+         },
+         "ManifestType": "application/vnd.oci.image.manifest.v1+json",
+         "User": "appuser",
+         "History": [
+              {
+                   "created": "2025-07-15T11:01:16Z",
+                   "created_by": "ADD alpine-minirootfs-3.22.1-aarch64.tar.gz / # buildkit",
+                   "comment": "buildkit.dockerfile.v0"
+              },
+              {
+                   "created": "2025-07-15T11:01:16Z",
+                   "created_by": "CMD [\"/bin/sh\"]",
+                   "comment": "buildkit.dockerfile.v0",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:20.831333401Z",
+                   "created_by": "/bin/sh -c apk add --no-cache ca-certificates libgcc openssl",
+                   "comment": "FROM docker.io/library/alpine:3.22"
+              },
+              {
+                   "created": "2025-07-21T20:13:21.079844564Z",
+                   "created_by": "/bin/sh -c addgroup -g 1001 appuser &&     adduser -u 1001 -G appuser -s /bin/sh -D appuser"
+              },
+              {
+                   "created": "2025-07-21T20:13:21.127262319Z",
+                   "created_by": "/bin/sh -c #(nop) WORKDIR /app",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:21.250479981Z",
+                   "created_by": "/bin/sh -c #(nop) COPY file:d6e80d5365a07a07ee1801e6fa24279120c8bceec1509c920b2b601adc497f93 in /app/authentication-service "
+              },
+              {
+                   "created": "2025-07-21T20:13:21.456070701Z",
+                   "created_by": "/bin/sh -c mkdir -p /app/keys"
+              },
+              {
+                   "created": "2025-07-21T20:13:21.619299656Z",
+                   "created_by": "/bin/sh -c #(nop) COPY file:8e3cd1c4d6793c38473af3396181df72ef76271cf9569930f34d843ce6b7a82b in /app/docker-entrypoint.sh "
+              },
+              {
+                   "created": "2025-07-21T20:13:21.817601708Z",
+                   "created_by": "/bin/sh -c chmod +x /app/authentication-service /app/docker-entrypoint.sh"
+              },
+              {
+                   "created": "2025-07-21T20:13:22.040278195Z",
+                   "created_by": "/bin/sh -c chown -R appuser:appuser /app"
+              },
+              {
+                   "created": "2025-07-21T20:13:22.166265379Z",
+                   "created_by": "/bin/sh -c #(nop) USER appuser",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.246403219Z",
+                   "created_by": "/bin/sh -c #(nop) EXPOSE 8082",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.328276681Z",
+                   "created_by": "/bin/sh -c #(nop) ENV RUST_LOG=info",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.412368695Z",
+                   "created_by": "/bin/sh -c #(nop) ENV PORT=8082",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.494775753Z",
+                   "created_by": "/bin/sh -c #(nop) ENV OTEL_SERVICE_NAME=authentication-api",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.577387025Z",
+                   "created_by": "/bin/sh -c #(nop) ENV OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.661809838Z",
+                   "created_by": "/bin/sh -c #(nop) ENV OTEL_TRACES_SAMPLER=always_on",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.746242651Z",
+                   "created_by": "/bin/sh -c #(nop) ENV APP_VERSION=1.0.0",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.830563837Z",
+                   "created_by": "/bin/sh -c #(nop) ENV DEPLOYMENT_ENVIRONMENT=production",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T20:13:22.912212044Z",
+                   "created_by": "/bin/sh -c #(nop) ENTRYPOINT [\"/app/docker-entrypoint.sh\"]",
+                   "empty_layer": true
+              }
+         ],
+         "NamesHistory": [
+              "localhost/rust-axum:benchmark-arm64"
+         ]
+    }
+]
