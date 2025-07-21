@@ -1,0 +1,94 @@
+[
+    {
+        "Id": "sha256:ec258ed3802e932bbfd2461af8ff03ad51816ceb9d84df0a08f32043f8e21110",
+        "RepoTags": [
+            "rust-axum:benchmark-arm64",
+            "recommendation:arm64"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2025-07-21T18:50:16.891087881Z",
+        "Container": "",
+        "ContainerConfig": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "appuser",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                "OTEL_SERVICE_NAME=recommendation-service"
+            ],
+            "Cmd": [
+                "./app"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "arm64",
+        "Variant": "v8",
+        "Os": "linux",
+        "Size": 27009398,
+        "VirtualSize": 27009398,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/xskd7e0hl6vg2a3kpr3nzg5xw/diff:/var/lib/docker/overlay2/e7ywaafko6lh0sgpptx6u405h/diff:/var/lib/docker/overlay2/lth5j12hvlmdw2kiwd5hmlg67/diff:/var/lib/docker/overlay2/fl3c0d9vr0zftxgvs2obcdxr2/diff:/var/lib/docker/overlay2/n1ag0029ea48y5m0pe13lzxnt/diff:/var/lib/docker/overlay2/uk2du6dkl192cg55bmzgniqls/diff:/var/lib/docker/overlay2/561ac8ddcab6c4d2382d105b584c58a1779d2a971e6efca7d1b578da5bedf5b6/diff",
+                "MergedDir": "/var/lib/docker/overlay2/r7giwlyuzadmsu2hdh8c6g4ao/merged",
+                "UpperDir": "/var/lib/docker/overlay2/r7giwlyuzadmsu2hdh8c6g4ao/diff",
+                "WorkDir": "/var/lib/docker/overlay2/r7giwlyuzadmsu2hdh8c6g4ao/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:1231a673589ac9e2f8a98ed916d1fa8301b36a44dd14fc40eba5a05905da69f1",
+                "sha256:fba8f21eefa7062b7335ae985fa3c6e5259ca8558940ae444bd51bce86c10416",
+                "sha256:24567193c666d3aecd037fee1a4254c3ca95556099c2594f038b5276e16ce9cf",
+                "sha256:9ac061289ac3ee66ca4a22bad6fc27869d111c7e945913d1b9b442c71d464fbe",
+                "sha256:5e0a5e0b89c37f1c6ab8aa8bb1edcce63367c41f5b70e85c85bc6b78b4495404",
+                "sha256:02fc83597dcba7e82578b4099991086feb2ffa55087bc7d92c01b87ddbd5fed3",
+                "sha256:cfbd37d720cdb43921071c416184b24354d7408e78c096009a73eb7cd206a58d",
+                "sha256:bba081516ecdea0f717c46e95557b0882abed83f33676b6ce7746767612b9858"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-21T18:52:13.518636296Z"
+        }
+    }
+]

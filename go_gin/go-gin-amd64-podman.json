@@ -1,0 +1,145 @@
+[
+    {
+         "Id": "6d3213f9fb1250e9a7696efe999470deddf6bc746ff57e129c05143fa7576696",
+         "Digest": "sha256:8123fc17670d4a2abd272ba3f88da274f233810fbe1f2fd031cda191e0eb115d",
+         "RepoTags": [
+              "localhost/go-gin:benchmark-amd64"
+         ],
+         "RepoDigests": [
+              "localhost/recommendation@sha256:8123fc17670d4a2abd272ba3f88da274f233810fbe1f2fd031cda191e0eb115d"
+         ],
+         "Parent": "b868775a97403ee5ad3753661ded2ef7bcfb1b9b9971f53a3a20135f0a02b29a",
+         "Comment": "buildkit.dockerfile.v0",
+         "Created": "2025-07-21T19:52:20.037088807Z",
+         "Config": {
+              "User": "appuser",
+              "ExposedPorts": {
+                   "8080/tcp": {}
+              },
+              "Env": [
+                   "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                   "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                   "OTEL_SERVICE_NAME=recommendation-service"
+              ],
+              "Cmd": [
+                   "./app"
+              ],
+              "WorkingDir": "/app",
+              "Labels": {
+                   "io.buildah.version": "1.40.1"
+              }
+         },
+         "Version": "",
+         "Author": "",
+         "Architecture": "amd64",
+         "Os": "linux",
+         "Size": 28280052,
+         "VirtualSize": 28280052,
+         "GraphDriver": {
+              "Name": "overlay",
+              "Data": {
+                   "LowerDir": "/var/home/core/.local/share/containers/storage/overlay/b00aaf7403f74fc5c9ac29f36ffeaa69f1dd398d83f8d36629a40807ddcba3f4/diff:/var/home/core/.local/share/containers/storage/overlay/1fa23712588983c65959f8781da6cbb3629bd8eb6f1735f0912fb993271e214f/diff:/var/home/core/.local/share/containers/storage/overlay/d92284a4e2bd52661c6768dfde6137d9572a165429c9a5e657dc9cc7b6e8ab5e/diff:/var/home/core/.local/share/containers/storage/overlay/f3201c080036c4e2018332a6d1363fbf809c37ead66fb093a01dda9e84b7e68b/diff:/var/home/core/.local/share/containers/storage/overlay/1070b623bef17cd3836035309fe36cc3dce14d55eb5459aecbb27c41b05b76f3/diff:/var/home/core/.local/share/containers/storage/overlay/fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4/diff",
+                   "UpperDir": "/var/home/core/.local/share/containers/storage/overlay/7e9cf5bbfbf6e237a2e06c6499df1c598bd67e22cf1d0b49d1eb4ef2841796fd/diff",
+                   "WorkDir": "/var/home/core/.local/share/containers/storage/overlay/7e9cf5bbfbf6e237a2e06c6499df1c598bd67e22cf1d0b49d1eb4ef2841796fd/work"
+              }
+         },
+         "RootFS": {
+              "Type": "layers",
+              "Layers": [
+                   "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
+                   "sha256:c7c16455e1a814575388b3c3bf137574e24c0e27234af0296531404dffc21b3a",
+                   "sha256:abfce4ae085f88490d639af4466c3a4a0f8bea624032f4d0c7514a00c5ee5398",
+                   "sha256:9dcb144f04933f4a2d7689a0b2028a94050ceb004d04c90072de599d3565843f",
+                   "sha256:e827dea049c6d4dbf38c157518ad52324ddcfd9c00d71135259128494f7c58ad",
+                   "sha256:952f34f94fe393b9aafba3d648095b53199ebda0aa82ca1f68487c75ac592250",
+                   "sha256:e0887f337aa8d8ef8944a185eb5b225e0ca346d85ac320f4a65eaf9b05acb4f3"
+              ]
+         },
+         "Labels": {
+              "io.buildah.version": "1.40.1"
+         },
+         "Annotations": {
+              "com.docker.official-images.bashbrew.arch": "amd64",
+              "org.opencontainers.image.base.digest": "sha256:08001109a7d679fe33b04fa51d681bd40b975d8f5cea8c3ef6c0eccb6a7338ce",
+              "org.opencontainers.image.base.name": "docker.io/library/alpine:3.22.0",
+              "org.opencontainers.image.created": "2025-05-30T16:20:41Z",
+              "org.opencontainers.image.revision": "5213c5a71c73d39d5896657909e753effb1c05ff",
+              "org.opencontainers.image.source": "https://github.com/alpinelinux/docker-alpine.git#5213c5a71c73d39d5896657909e753effb1c05ff:x86_64",
+              "org.opencontainers.image.url": "https://hub.docker.com/_/alpine",
+              "org.opencontainers.image.version": "3.22.0"
+         },
+         "ManifestType": "application/vnd.oci.image.manifest.v1+json",
+         "User": "appuser",
+         "History": [
+              {
+                   "created": "2025-05-30T16:20:41Z",
+                   "created_by": "ADD alpine-minirootfs-3.22.0-x86_64.tar.gz / # buildkit",
+                   "comment": "buildkit.dockerfile.v0"
+              },
+              {
+                   "created": "2025-05-30T16:20:41Z",
+                   "created_by": "CMD [\"/bin/sh\"]",
+                   "comment": "buildkit.dockerfile.v0",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:18.531068784Z",
+                   "created_by": "/bin/sh -c apk add --no-cache ca-certificates tzdata &&     rm -rf /var/cache/apk/*",
+                   "comment": "FROM docker.io/library/alpine:3.22.0"
+              },
+              {
+                   "created": "2025-07-21T19:52:18.784203334Z",
+                   "created_by": "/bin/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h /home/appuser appuser"
+              },
+              {
+                   "created": "2025-07-21T19:52:18.832430415Z",
+                   "created_by": "/bin/sh -c #(nop) WORKDIR /app",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:19.01090549Z",
+                   "created_by": "/bin/sh -c #(nop) COPY file:89dc8bf93590fe8b3c45a0721ccd2859d0483614bc1d4085bac35859fbb280d7 in ./app "
+              },
+              {
+                   "created": "2025-07-21T19:52:19.275529639Z",
+                   "created_by": "/bin/sh -c #(nop) COPY dir:1ad5daca15bfefe4a81bf0c3eee138e3f14705fa722501e21a79b4d6f7fbf358 in ./static/ "
+              },
+              {
+                   "created": "2025-07-21T19:52:19.439306379Z",
+                   "created_by": "/bin/sh -c #(nop) COPY dir:088e74140534833d35493518f63d5f1085a497b21ebef48f395bbbdc9c281e67 in ./templates/ "
+              },
+              {
+                   "created": "2025-07-21T19:52:19.602985536Z",
+                   "created_by": "/bin/sh -c #(nop) COPY dir:f073d94dc9e7d59f4141a627e52797a14d049e71c5da2c0d33e9d8059974929b in ./data/ "
+              },
+              {
+                   "created": "2025-07-21T19:52:19.705165205Z",
+                   "created_by": "/bin/sh -c #(nop) USER appuser",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:19.786583363Z",
+                   "created_by": "/bin/sh -c #(nop) ENV OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:19.871148798Z",
+                   "created_by": "/bin/sh -c #(nop) ENV OTEL_SERVICE_NAME=recommendation-service",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:19.952938584Z",
+                   "created_by": "/bin/sh -c #(nop) EXPOSE 8080",
+                   "empty_layer": true
+              },
+              {
+                   "created": "2025-07-21T19:52:20.037263975Z",
+                   "created_by": "/bin/sh -c #(nop) CMD [\"./app\"]",
+                   "empty_layer": true
+              }
+         ],
+         "NamesHistory": [
+              "localhost/go-gin:benchmark-amd64"
+         ]
+    }
+]
