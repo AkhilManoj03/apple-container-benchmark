@@ -2,29 +2,25 @@
     {
         "variants": [
             {
-                "size": 42009587,
+                "size": 42009544,
                 "platform": {
                     "architecture": "amd64",
                     "os": "linux"
                 },
                 "config": {
-                    "os": "linux",
-                    "rootfs": {
-                        "diff_ids": [
-                            "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
-                            "sha256:508c156eff11676c10dd89ddb3a17b0517d99a16cec59bbdb3ec94a6984028d4",
-                            "sha256:34441ec4ebfd032d7fba664745b5e4fcf82faf84a1df9f832481f88e5d190e77",
-                            "sha256:2412c25a801829108b8f2f2dc0923567853dad6fb1d701fa0522311379863ad3",
-                            "sha256:b5cfc83020a20d549de0540b35536bc92e35d3bbfa850f6f0eb6d78bd848a811",
-                            "sha256:32fdb74a5d95b6c2d6da15437f22d07a1f88a65d4704758e078987fd09e5c4bf",
-                            "sha256:d3527fb081eb9bff76d4b78d01dec20ab5e0cb332882241be6465b58ea9ccc3d",
-                            "sha256:6ba65c661dbbabd9bd2df2e8aaa2dc22a90ebd8dd3ff369be3fef1aaf5dd0198",
-                            "sha256:43089b63f3731611384013324223eed927166d59d9f2d14bf5d4877165a64b00"
-                        ],
-                        "type": "layers"
-                    },
+                    "architecture": "amd64",
                     "created": "2025-06-11T21:49:27Z",
                     "config": {
+                        "WorkingDir": "\/app",
+                        "User": "appuser",
+                        "Cmd": [
+                            "uvicorn",
+                            "main:app",
+                            "--host",
+                            "0.0.0.0",
+                            "--port",
+                            "8000"
+                        ],
                         "Env": [
                             "PATH=\/home\/appuser\/.local\/bin:\/usr\/local\/bin:\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
                             "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
@@ -36,175 +32,179 @@
                             "OTEL_SERVICE_NAME=products-api",
                             "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
                             "OTEL_TRACES_SAMPLER=always_on"
-                        ],
-                        "WorkingDir": "\/app",
-                        "Cmd": [
-                            "uvicorn",
-                            "main:app",
-                            "--host",
-                            "0.0.0.0",
-                            "--port",
-                            "8000"
-                        ],
-                        "User": "appuser"
+                        ]
+                    },
+                    "os": "linux",
+                    "rootfs": {
+                        "type": "layers",
+                        "diff_ids": [
+                            "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+                            "sha256:508c156eff11676c10dd89ddb3a17b0517d99a16cec59bbdb3ec94a6984028d4",
+                            "sha256:34441ec4ebfd032d7fba664745b5e4fcf82faf84a1df9f832481f88e5d190e77",
+                            "sha256:2412c25a801829108b8f2f2dc0923567853dad6fb1d701fa0522311379863ad3",
+                            "sha256:ff84305e7b3f9cef9b86ee84d5141efb3712f01e1522f74f48e21292fddacfa7",
+                            "sha256:c0d76bb6d66fddc11acd143722c03c8b5d25a8672d7a372b609e8f18e11f6eff",
+                            "sha256:f18d7f394ce3c4653bce5410bacb8066efa9391b2de6fc648bb6a4ee208110bd",
+                            "sha256:c4671ceeff2de8c00c6e2f2c32f634e257ceca5ab61a741eba3cc2f39d3042f0",
+                            "sha256:f4ebff3053cc218dfdc1362acae7e101aca720fa6ec4a6680d58db32ad800aae"
+                        ]
                     },
                     "history": [
                         {
-                            "comment": "buildkit.dockerfile.v0",
                             "created": "2025-06-11T21:49:27Z",
-                            "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz \/ # buildkit"
+                            "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz \/ # buildkit",
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
                             "created": "2025-06-11T21:49:27Z",
                             "created_by": "CMD [\"\/bin\/sh\"]",
-                            "empty_layer": true
+                            "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "ENV PATH=\/usr\/local\/bin:\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
                             "empty_layer": true,
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "RUN \/bin\/sh -c set -eux; \tapk add --no-cache \t\tca-certificates \t\ttzdata \t; # buildkit",
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "ENV GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
                             "empty_layer": true,
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "ENV PYTHON_VERSION=3.13.5",
                             "empty_layer": true,
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "ENV PYTHON_SHA256=93e583f243454e6e9e4588ca2c2662206ad961659863277afcdb96801647d640",
                             "empty_layer": true,
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "RUN \/bin\/sh -c set -eux; \t\tapk add --no-cache --virtual .build-deps \t\tgnupg \t\ttar \t\txz \t\t\t\tbluez-dev \t\tbzip2-dev \t\tdpkg-dev dpkg \t\tfindutils \t\tgcc \t\tgdbm-dev \t\tlibc-dev \t\tlibffi-dev \t\tlibnsl-dev \t\tlibtirpc-dev \t\tlinux-headers \t\tmake \t\tncurses-dev \t\topenssl-dev \t\tpax-utils \t\treadline-dev \t\tsqlite-dev \t\ttcl-dev \t\ttk \t\ttk-dev \t\tutil-linux-dev \t\txz-dev \t\tzlib-dev \t; \t\twget -O python.tar.xz \"https:\/\/www.python.org\/ftp\/python\/${PYTHON_VERSION%%[a-z]*}\/Python-$PYTHON_VERSION.tar.xz\"; \techo \"$PYTHON_SHA256 *python.tar.xz\" | sha256sum -c -; \twget -O python.tar.xz.asc \"https:\/\/www.python.org\/ftp\/python\/${PYTHON_VERSION%%[a-z]*}\/Python-$PYTHON_VERSION.tar.xz.asc\"; \tGNUPGHOME=\"$(mktemp -d)\"; export GNUPGHOME; \tgpg --batch --keyserver hkps:\/\/keys.openpgp.org --recv-keys \"$GPG_KEY\"; \tgpg --batch --verify python.tar.xz.asc python.tar.xz; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" python.tar.xz.asc; \tmkdir -p \/usr\/src\/python; \ttar --extract --directory \/usr\/src\/python --strip-components=1 --file python.tar.xz; \trm python.tar.xz; \t\tcd \/usr\/src\/python; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t.\/configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t$(test \"$gnuArch\" != 'riscv64-linux-musl' && echo '--with-lto') \t\t--with-ensurepip \t; \tnproc=\"$(nproc)\"; \tEXTRA_CFLAGS=\"-DTHREAD_STACK_SIZE=0x100000\"; \tLDFLAGS=\"${LDFLAGS:--Wl},--strip-all\"; \t\tarch=\"$(apk --print-arch)\"; \t\tcase \"$arch\" in \t\t\tx86_64|aarch64) \t\t\t\tEXTRA_CFLAGS=\"${EXTRA_CFLAGS:-} -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer\"; \t\t\t\t;; \t\t\tx86) \t\t\t\t;; \t\t\t*) \t\t\t\tEXTRA_CFLAGS=\"${EXTRA_CFLAGS:-} -fno-omit-frame-pointer\"; \t\t\t\t;; \t\tesac; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:-}\" \t; \trm python; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:--Wl},-rpath='\\$\\$ORIGIN\/..\/lib'\" \t\tpython \t; \tmake install; \t\tcd \/; \trm -rf \/usr\/src\/python; \t\tfind \/usr\/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + \t; \t\tfind \/usr\/local -type f -executable -not \\( -name '*tkinter*' \\) -exec scanelf --needed --nobanner --format '%n#p' '{}' ';' \t\t| tr ',' '\\n' \t\t| sort -u \t\t| awk 'system(\"[ -e \/usr\/local\/lib\/\" $1 \" ]\") == 0 { next } { print \"so:\" $1 }' \t\t| xargs -rt apk add --no-network --virtual .python-rundeps \t; \tapk del --no-network .build-deps; \t\texport PYTHONDONTWRITEBYTECODE=1; \tpython3 --version; \tpip3 --version # buildkit",
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "RUN \/bin\/sh -c set -eux; \tfor src in idle3 pip3 pydoc3 python3 python3-config; do \t\tdst=\"$(echo \"$src\" | tr -d 3)\"; \t\t[ -s \"\/usr\/local\/bin\/$src\" ]; \t\t[ ! -e \"\/usr\/local\/bin\/$dst\" ]; \t\tln -svT \"$src\" \"\/usr\/local\/bin\/$dst\"; \tdone # buildkit",
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-06-11T21:49:27Z",
                             "created_by": "CMD [\"python3\"]",
                             "empty_layer": true,
-                            "created": "2025-06-11T21:49:27Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.009007842Z",
                             "created_by": "RUN \/bin\/sh -c apk add --no-cache     libffi     && rm -rf \/var\/cache\/apk\/* # buildkit",
-                            "created": "2025-07-21T16:52:21.066377545Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.092832175Z",
                             "created_by": "RUN \/bin\/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h \/home\/appuser appuser # buildkit",
-                            "created": "2025-07-21T16:52:21.15885592Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV PYTHONDONTWRITEBYTECODE=1",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV PYTHONUNBUFFERED=1",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV PATH=\/home\/appuser\/.local\/bin:\/usr\/local\/bin:\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV PYTHONPATH=\/app",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV OTEL_SERVICE_NAME=products-api",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "ENV OTEL_TRACES_SAMPLER=always_on",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "WORKDIR \/app",
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:30.1044068Z",
                             "created_by": "USER appuser",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:21.180499629Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:47.854723002Z",
                             "created_by": "COPY --chown=appuser:appuser \/root\/.local \/home\/appuser\/.local # buildkit",
-                            "created": "2025-07-21T16:52:38.390526929Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:47.886365835Z",
                             "created_by": "COPY --chown=appuser:appuser app\/ .\/ # buildkit",
-                            "created": "2025-07-21T16:52:38.427498595Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:47.886365835Z",
                             "created_by": "EXPOSE map[8000\/tcp:{}]",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:38.427498595Z"
+                            "comment": "buildkit.dockerfile.v0"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T16:49:47.886365835Z",
                             "created_by": "CMD [\"uvicorn\" \"main:app\" \"--host\" \"0.0.0.0\" \"--port\" \"8000\"]",
                             "empty_layer": true,
-                            "created": "2025-07-21T16:52:38.427498595Z"
+                            "comment": "buildkit.dockerfile.v0"
                         }
-                    ],
-                    "architecture": "amd64"
+                    ]
                 }
             }
         ],
         "index": {
-            "size": 375,
-            "mediaType": "application\/vnd.oci.image.index.v1+json",
             "annotations": {
-                "com.apple.containerization.image.name": "python-fastapi:benchmark-amd64",
-                "org.opencontainers.image.ref.name": "benchmark",
                 "io.containerd.image.name": "docker.io\/library\/python-fastapi:benchmark-amd64",
-                "org.opencontainers.image.created": "2025-07-21T16:52:40Z"
+                "org.opencontainers.image.created": "2025-07-22T16:49:49Z",
+                "com.apple.containerization.image.name": "python-fastapi:benchmark-amd64",
+                "org.opencontainers.image.ref.name": "benchmark-amd64"
             },
-            "digest": "sha256:b84cab7e6eaf90e9bb28a3dedc146f6cd410f33023491346a85a22487153a006"
+            "mediaType": "application\/vnd.oci.image.index.v1+json",
+            "digest": "sha256:62fb85ae7865e0061d71aaad497cc45c2c32d1ef0f863f39ffd2f30e28d6d10c",
+            "size": 375
         },
         "name": "python-fastapi:benchmark-amd64"
     }

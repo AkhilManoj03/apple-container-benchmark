@@ -2,38 +2,62 @@
     {
         "variants": [
             {
-                "size": 79592483,
+                "size": 79599694,
+                "platform": {
+                    "architecture": "amd64",
+                    "os": "linux"
+                },
                 "config": {
+                    "architecture": "amd64",
+                    "config": {
+                        "User": "appuser",
+                        "Cmd": [
+                            "npm",
+                            "start"
+                        ],
+                        "Entrypoint": [
+                            "docker-entrypoint.sh"
+                        ],
+                        "Env": [
+                            "PATH=\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
+                            "NODE_VERSION=22.16.0",
+                            "YARN_VERSION=1.22.22",
+                            "NODE_ENV=production",
+                            "OTEL_SERVICE_NAME=craftista-frontend",
+                            "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
+                            "OTEL_TRACES_SAMPLER=always_on"
+                        ],
+                        "WorkingDir": "\/app"
+                    },
                     "rootfs": {
+                        "type": "layers",
                         "diff_ids": [
                             "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
                             "sha256:126f43b2ffa5f1aedd6a2b56c92a4b6308a687f9f491bcfd58198674e7a09d38",
                             "sha256:53fa260c3ba49dabb9a585f76bc22bdd4503250e85552e37bab898ea5d11be00",
                             "sha256:6a6cca838e27117cc5c5231f3639724d6865738d62fcb433b03590fa662c53ac",
-                            "sha256:844b2c8d23493e6fe46dd5ccb799c5d83a54320fcbf164a843ffd62d7da64401",
-                            "sha256:4d3fc6c751365dadd2723f28401073185024802331edd1ef075ed1c9eb360070",
-                            "sha256:a3d0484d7f6810b532c20c61ac4b4955980dc85c1126e3506d7194ffd7cfb63c",
-                            "sha256:538b16e0d06f48d4a236de7404806ebb916049161d7f1c63efcec42461af16a5"
-                        ],
-                        "type": "layers"
+                            "sha256:783845a9f326aae68db864a67b2d4c2186f11806a65800f0ddfe58166ffd42a0",
+                            "sha256:041c029fdd143561e4933ff4089fd8142743b3be36c53d2c19a3aebf26bec175",
+                            "sha256:5963045e08605273a5827155635af4c8276d5c7d3eb75ef28395348384410b2f",
+                            "sha256:b40c70c39082afa99d99fd4a4a1edacd91fa4673bf4ae32670b51437c4dd58f3"
+                        ]
                     },
-                    "created": "2025-05-30T22:21:12Z",
                     "history": [
                         {
-                            "created_by": "ADD alpine-minirootfs-3.22.0-x86_64.tar.gz \/ # buildkit",
+                            "created": "2025-05-30T16:20:41Z",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-05-30T16:20:41Z"
+                            "created_by": "ADD alpine-minirootfs-3.22.0-x86_64.tar.gz \/ # buildkit"
                         },
                         {
-                            "created_by": "CMD [\"\/bin\/sh\"]",
+                            "created": "2025-05-30T16:20:41Z",
                             "empty_layer": true,
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-05-30T16:20:41Z"
+                            "created_by": "CMD [\"\/bin\/sh\"]"
                         },
                         {
                             "created": "2025-05-30T22:21:12Z",
-                            "comment": "buildkit.dockerfile.v0",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV NODE_VERSION=22.16.0"
                         },
                         {
@@ -43,8 +67,8 @@
                         },
                         {
                             "created": "2025-05-30T22:21:12Z",
-                            "comment": "buildkit.dockerfile.v0",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV YARN_VERSION=1.22.22"
                         },
                         {
@@ -59,119 +83,95 @@
                         },
                         {
                             "created": "2025-05-30T22:21:12Z",
-                            "comment": "buildkit.dockerfile.v0",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]"
                         },
                         {
                             "created": "2025-05-30T22:21:12Z",
-                            "comment": "buildkit.dockerfile.v0",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "CMD [\"node\"]"
                         },
                         {
-                            "created": "2025-07-21T17:02:35.621834301Z",
+                            "created": "2025-07-22T17:23:28.469000967Z",
                             "comment": "buildkit.dockerfile.v0",
                             "created_by": "RUN \/bin\/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h \/home\/appuser appuser &&     rm -rf \/var\/cache\/apk\/* # buildkit"
                         },
                         {
-                            "created": "2025-07-21T17:02:35.698969301Z",
+                            "created": "2025-07-22T17:23:28.478161134Z",
                             "comment": "buildkit.dockerfile.v0",
                             "created_by": "WORKDIR \/app"
                         },
                         {
-                            "created": "2025-07-21T17:02:56.082897254Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:47.234050336Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "USER appuser"
                         },
                         {
-                            "created": "2025-07-21T17:02:56.082897254Z",
+                            "created": "2025-07-22T17:23:47.234050336Z",
                             "comment": "buildkit.dockerfile.v0",
                             "created_by": "COPY --chown=appuser:appuser \/build\/node_modules .\/node_modules # buildkit"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "comment": "buildkit.dockerfile.v0",
                             "created_by": "COPY --chown=appuser:appuser . . # buildkit"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV NODE_ENV=production"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV OTEL_SERVICE_NAME=craftista-frontend"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ENV OTEL_TRACES_SAMPLER=always_on"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "EXPOSE map[3000\/tcp:{}]"
                         },
                         {
-                            "created": "2025-07-21T17:02:57.70940563Z",
-                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:23:48.784415003Z",
                             "empty_layer": true,
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "CMD [\"npm\" \"start\"]"
                         }
                     ],
-                    "os": "linux",
-                    "config": {
-                        "Cmd": [
-                            "npm",
-                            "start"
-                        ],
-                        "Env": [
-                            "PATH=\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
-                            "NODE_VERSION=22.16.0",
-                            "YARN_VERSION=1.22.22",
-                            "NODE_ENV=production",
-                            "OTEL_SERVICE_NAME=craftista-frontend",
-                            "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
-                            "OTEL_TRACES_SAMPLER=always_on"
-                        ],
-                        "Entrypoint": [
-                            "docker-entrypoint.sh"
-                        ],
-                        "WorkingDir": "\/app",
-                        "User": "appuser"
-                    },
-                    "architecture": "amd64"
-                },
-                "platform": {
-                    "os": "linux",
-                    "architecture": "amd64"
+                    "created": "2025-05-30T22:21:12Z",
+                    "os": "linux"
                 }
             }
         ],
+        "name": "node-express:benchmark-amd64",
         "index": {
             "size": 375,
-            "digest": "sha256:a77e0254fc235ee0f8328129b150e7c195a3334f0571209be03be5035dcbb693",
-            "mediaType": "application\/vnd.oci.image.index.v1+json",
+            "digest": "sha256:662e37566d63bc7a78f8c835961b52e1afe0cdb43be0bf5e44e7454980ec6aed",
             "annotations": {
-                "org.opencontainers.image.ref.name": "benchmark",
+                "org.opencontainers.image.ref.name": "benchmark-amd64",
                 "com.apple.containerization.image.name": "node-express:benchmark-amd64",
-                "io.containerd.image.name": "docker.io\/library\/node-express:benchmark-amd64",
-                "org.opencontainers.image.created": "2025-07-21T17:02:59Z"
-            }
-        },
-        "name": "node-express:benchmark-amd64"
+                "org.opencontainers.image.created": "2025-07-22T17:23:50Z",
+                "io.containerd.image.name": "docker.io\/library\/node-express:benchmark-amd64"
+            },
+            "mediaType": "application\/vnd.oci.image.index.v1+json"
+        }
     }
 ]

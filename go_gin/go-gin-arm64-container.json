@@ -1,133 +1,133 @@
 [
     {
         "index": {
-            "size": 375,
             "mediaType": "application\/vnd.oci.image.index.v1+json",
-            "digest": "sha256:9c4337ff02b0caed7d3c33590eb7d69efe78bdd4c28ddb7623a5227866554f58",
+            "size": 375,
+            "digest": "sha256:b3f046e69673b5e7544591912b27f379186604ebd9679d7c008171708ad789ea",
             "annotations": {
-                "org.opencontainers.image.created": "2025-07-21T17:10:45Z",
-                "io.containerd.image.name": "docker.io\/library\/go-gin:benchmark",
-                "org.opencontainers.image.ref.name": "benchmark",
-                "com.apple.containerization.image.name": "go-gin:benchmark"
+                "com.apple.containerization.image.name": "go-gin:benchmark-arm64",
+                "org.opencontainers.image.created": "2025-07-22T17:26:57Z",
+                "io.containerd.image.name": "docker.io\/library\/go-gin:benchmark-arm64",
+                "org.opencontainers.image.ref.name": "benchmark-arm64"
             }
         },
-        "name": "go-gin:benchmark",
         "variants": [
             {
-                "platform": {
-                    "os": "linux",
-                    "architecture": "arm64"
-                },
+                "size": 11031559,
                 "config": {
+                    "os": "linux",
+                    "rootfs": {
+                        "type": "layers",
+                        "diff_ids": [
+                            "sha256:1231a673589ac9e2f8a98ed916d1fa8301b36a44dd14fc40eba5a05905da69f1",
+                            "sha256:4b64e76652559e6c0ae413162a458a525b36c674f65071a6b03aa63b4c7bfb3f",
+                            "sha256:77af9e77e103a3122d3e58be1f941d62a2c0a726d5a19871fe5006895a6e824e",
+                            "sha256:3ec967f01cd89f6e02a1b86ebb960f797d953d5f3972d9df656b5576def0825b",
+                            "sha256:41a438515fc2cfe8d3c4f1c9f073d4ca3c62de8358eb98cb9d9efd5d9947c48e",
+                            "sha256:6e5f7581b0a24e3092f29862848991cc92dab96f875afdf028d10c9d16aba99e",
+                            "sha256:8188fa79ec3bfe208b527f9d9fa144fdc91b27b3e9c6cfd2f1f6ca8f52df82ed",
+                            "sha256:dab1ef9783138f4f2f05433494c11f8003e300d68ee7d23773cc472c86a32315"
+                        ]
+                    },
                     "history": [
                         {
-                            "comment": "buildkit.dockerfile.v0",
                             "created": "2025-05-30T16:20:41Z",
+                            "comment": "buildkit.dockerfile.v0",
                             "created_by": "ADD alpine-minirootfs-3.22.0-aarch64.tar.gz \/ # buildkit"
                         },
                         {
-                            "comment": "buildkit.dockerfile.v0",
                             "created": "2025-05-30T16:20:41Z",
-                            "empty_layer": true,
-                            "created_by": "CMD [\"\/bin\/sh\"]"
-                        },
-                        {
-                            "created_by": "RUN \/bin\/sh -c apk add --no-cache ca-certificates tzdata &&     rm -rf \/var\/cache\/apk\/* # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:16.742774511Z"
+                            "created_by": "CMD [\"\/bin\/sh\"]",
+                            "empty_layer": true
                         },
                         {
-                            "created_by": "RUN \/bin\/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h \/home\/appuser appuser # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:16.796335011Z"
+                            "created": "2025-07-22T17:26:37.089361884Z",
+                            "created_by": "RUN \/bin\/sh -c apk add --no-cache ca-certificates tzdata &&     rm -rf \/var\/cache\/apk\/* # buildkit"
                         },
                         {
-                            "created_by": "WORKDIR \/app",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:16.806498678Z"
+                            "created": "2025-07-22T17:26:37.194313175Z",
+                            "created_by": "RUN \/bin\/sh -c addgroup -S -g 1001 appuser &&     adduser -S -G appuser -u 1001 -h \/home\/appuser appuser # buildkit"
                         },
                         {
-                            "created_by": "COPY --chown=appuser:appuser \/build\/app .\/app # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:44.731611218Z"
+                            "created": "2025-07-22T17:26:37.206489217Z",
+                            "created_by": "WORKDIR \/app"
                         },
                         {
-                            "created_by": "COPY --chown=appuser:appuser static\/ .\/static\/ # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:44.740987384Z"
+                            "created": "2025-07-22T17:26:56.823330003Z",
+                            "created_by": "COPY --chown=appuser:appuser \/build\/app .\/app # buildkit"
                         },
                         {
-                            "created_by": "COPY --chown=appuser:appuser templates\/ .\/templates\/ # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:44.749051468Z"
+                            "created": "2025-07-22T17:26:56.833492836Z",
+                            "created_by": "COPY --chown=appuser:appuser static\/ .\/static\/ # buildkit"
                         },
                         {
-                            "created_by": "COPY --chown=appuser:appuser data\/ .\/data\/ # buildkit",
                             "comment": "buildkit.dockerfile.v0",
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "created": "2025-07-22T17:26:56.843617128Z",
+                            "created_by": "COPY --chown=appuser:appuser templates\/ .\/templates\/ # buildkit"
                         },
                         {
+                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:26:56.853476795Z",
+                            "created_by": "COPY --chown=appuser:appuser data\/ .\/data\/ # buildkit"
+                        },
+                        {
+                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:26:56.853476795Z",
                             "created_by": "USER appuser",
-                            "comment": "buildkit.dockerfile.v0",
-                            "empty_layer": true,
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "empty_layer": true
                         },
                         {
+                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:26:56.853476795Z",
                             "created_by": "ENV OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
-                            "comment": "buildkit.dockerfile.v0",
-                            "empty_layer": true,
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "empty_layer": true
                         },
                         {
+                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:26:56.853476795Z",
                             "created_by": "ENV OTEL_SERVICE_NAME=recommendation-service",
-                            "comment": "buildkit.dockerfile.v0",
-                            "empty_layer": true,
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "empty_layer": true
                         },
                         {
+                            "comment": "buildkit.dockerfile.v0",
+                            "created": "2025-07-22T17:26:56.853476795Z",
                             "created_by": "EXPOSE map[8080\/tcp:{}]",
-                            "comment": "buildkit.dockerfile.v0",
-                            "empty_layer": true,
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "empty_layer": true
                         },
                         {
-                            "created_by": "CMD [\".\/app\"]",
                             "comment": "buildkit.dockerfile.v0",
-                            "empty_layer": true,
-                            "created": "2025-07-21T17:10:44.758200176Z"
+                            "created": "2025-07-22T17:26:56.853476795Z",
+                            "created_by": "CMD [\".\/app\"]",
+                            "empty_layer": true
                         }
                     ],
-                    "created": "2025-05-30T16:20:41Z",
                     "config": {
-                        "WorkingDir": "\/app",
                         "Env": [
                             "PATH=\/usr\/local\/sbin:\/usr\/local\/bin:\/usr\/sbin:\/usr\/bin:\/sbin:\/bin",
                             "OTEL_EXPORTER_OTLP_ENDPOINT=http:\/\/otel-collector:4318\/v1\/traces",
                             "OTEL_SERVICE_NAME=recommendation-service"
                         ],
+                        "User": "appuser",
                         "Cmd": [
                             ".\/app"
                         ],
-                        "User": "appuser"
+                        "WorkingDir": "\/app"
                     },
-                    "rootfs": {
-                        "diff_ids": [
-                            "sha256:1231a673589ac9e2f8a98ed916d1fa8301b36a44dd14fc40eba5a05905da69f1",
-                            "sha256:4175d1088df3c3df36ae17d7cd292d5ec7e62496e06965d01bd15d3314231298",
-                            "sha256:b7b32b55d8d40f86ebba9778c94a375e2e392ab54901a55a0ca26cc73a67123c",
-                            "sha256:d27c73fa9ff1de16be52657603dc96d6a6188538ecf2086ead5daa9ebcad1b85",
-                            "sha256:cf2c05ba1c24085919ed51cb3f1157ec7af79c5619341aa9e6ff008fe1261a9e",
-                            "sha256:836b61e62c51d37969ad82b80c135bd1d7cf4e17975272f244f9493b5c948258",
-                            "sha256:1d527e9d87bf64a156eb96f2c2ae97a2a3730f5d7e0d3d2b2ef5c8291e6901ab",
-                            "sha256:ba140c9038957b2d087d8e2901ed58d4dc232f7a9f0a23386be373e957621546"
-                        ],
-                        "type": "layers"
-                    },
-                    "os": "linux",
+                    "created": "2025-05-30T16:20:41Z",
                     "architecture": "arm64"
                 },
-                "size": 11031576
+                "platform": {
+                    "os": "linux",
+                    "architecture": "arm64"
+                }
             }
-        ]
+        ],
+        "name": "go-gin:benchmark-arm64"
     }
 ]
