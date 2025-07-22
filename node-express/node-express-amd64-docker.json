@@ -1,48 +1,54 @@
 [
     {
-        "Id": "sha256:14e698d5bc63284f96bec9d69e57723fa82d349782a76a64ec8e0b86b939fcca",
+        "Id": "sha256:6469e0fe10fb680644987b765ecaea34fdbea3b1659215d225584c2cb15598eb",
         "RepoTags": [
-            "node-express:benchmark-amd64"
+            "frontend:benchmark-amd64"
         ],
-        "RepoDigests": [],
+        "RepoDigests": [
+            "frontend@sha256:6469e0fe10fb680644987b765ecaea34fdbea3b1659215d225584c2cb15598eb"
+        ],
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
-        "Created": "2025-07-21T19:06:33.979855722Z",
-        "Container": "",
-        "ContainerConfig": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": null,
-            "Cmd": null,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
+        "Created": "2025-07-22T16:17:34.938358959Z",
         "DockerVersion": "",
         "Author": "",
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 79596910,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "overlayfs"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
+                "sha256:126f43b2ffa5f1aedd6a2b56c92a4b6308a687f9f491bcfd58198674e7a09d38",
+                "sha256:53fa260c3ba49dabb9a585f76bc22bdd4503250e85552e37bab898ea5d11be00",
+                "sha256:6a6cca838e27117cc5c5231f3639724d6865738d62fcb433b03590fa662c53ac",
+                "sha256:5a25f8b4384aa0b78e58ae9ce06107b947446ff3a303a74ee0ebf75337c18fa4",
+                "sha256:f23085dc3e6e33a07a5bb300945fffa60c28d5b8ad75e927f817fc796d3fd44d",
+                "sha256:3a02c04e2f20043e16e935dd6010f68dfa25f332608f4980b3866493eb08fa70",
+                "sha256:11928534028089b7d4bf482593bbbbb98f6d5e4816ccf7f9be9c34a389cb2a67"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-22T16:17:37.175066711Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:6469e0fe10fb680644987b765ecaea34fdbea3b1659215d225584c2cb15598eb",
+            "size": 856
+        },
         "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "appuser",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "3000/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
+            "ArgsEscaped": true,
+            "Cmd": [
+                "npm",
+                "start"
+            ],
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
             "Env": [
                 "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
                 "NODE_VERSION=22.16.0",
@@ -52,48 +58,14 @@
                 "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
                 "OTEL_TRACES_SAMPLER=always_on"
             ],
-            "Cmd": [
-                "npm",
-                "start"
-            ],
-            "ArgsEscaped": true,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "/app",
-            "Entrypoint": [
-                "docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": null
-        },
-        "Architecture": "amd64",
-        "Os": "linux",
-        "Size": 377062078,
-        "VirtualSize": 377062078,
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/xpyy6bxa1j074cl4w5r3rnlsv/diff:/var/lib/docker/overlay2/yc9p071nrimcay9ux7wjrxz0s/diff:/var/lib/docker/overlay2/x23ixj02z1mbu3altiihkvj6a/diff:/var/lib/docker/overlay2/0fc83a4a14e2e7cb94ec6597c3f2ec6a9bd2ad952e2e4275a63f07af10e8fba3/diff:/var/lib/docker/overlay2/2d9952107f9c0933dc661c91eb116ae3e57355abed973cea30f0e5c556ce6bf8/diff:/var/lib/docker/overlay2/98387de37ecb765df7219a07477d8b87a6d0f22a7e7b812dfa87e7481b928b0c/diff:/var/lib/docker/overlay2/84d51c507852c522c68570d08825dd4b5b98804d56be4099985457f4d2894184/diff",
-                "MergedDir": "/var/lib/docker/overlay2/uz56ur6pbejg6wr4ykrac4a6x/merged",
-                "UpperDir": "/var/lib/docker/overlay2/uz56ur6pbejg6wr4ykrac4a6x/diff",
-                "WorkDir": "/var/lib/docker/overlay2/uz56ur6pbejg6wr4ykrac4a6x/work"
+            "ExposedPorts": {
+                "3000/tcp": {}
             },
-            "Name": "overlay2"
-        },
-        "RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
-                "sha256:126f43b2ffa5f1aedd6a2b56c92a4b6308a687f9f491bcfd58198674e7a09d38",
-                "sha256:53fa260c3ba49dabb9a585f76bc22bdd4503250e85552e37bab898ea5d11be00",
-                "sha256:6a6cca838e27117cc5c5231f3639724d6865738d62fcb433b03590fa662c53ac",
-                "sha256:8ad7cfd2a7a341d4ec2dcc62d230a1d1c40bc20f8a9be0547c127e07f6714116",
-                "sha256:5f3df919fd472d6c87c55549ba6abb7e7e622bad3fe6ccd4f684149c16fe403d",
-                "sha256:33a1fc1509ee1706bde0e031751622210ea74d2d1a6d2c2563a93f23c80a37cc",
-                "sha256:283916872174dc2a754556aebfd2a2326513070f3ae5c43c1ac0abc62cdad9ca"
-            ]
-        },
-        "Metadata": {
-            "LastTagTime": "2025-07-21T19:06:35.047638Z"
+            "Labels": null,
+            "OnBuild": null,
+            "User": "appuser",
+            "Volumes": null,
+            "WorkingDir": "/app"
         }
     }
 ]

@@ -1,48 +1,51 @@
 [
     {
-        "Id": "sha256:5997bc49a3570f53a448381314e61a3d0da79b129a9550cda5f2afab2afcddb5",
+        "Id": "sha256:2c6f6315d6fb53f9e187c9a187d4ecc034970dcac5eaab7f9a076973f06c7cfc",
         "RepoTags": [
             "rust-axum:benchmark-arm64"
         ],
-        "RepoDigests": [],
+        "RepoDigests": [
+            "rust-axum@sha256:2c6f6315d6fb53f9e187c9a187d4ecc034970dcac5eaab7f9a076973f06c7cfc"
+        ],
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
-        "Created": "2025-07-21T19:19:54.354108509Z",
-        "Container": "",
-        "ContainerConfig": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": null,
-            "Cmd": null,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
+        "Created": "2025-07-22T16:26:23.57507401Z",
         "DockerVersion": "",
         "Author": "",
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 12385999,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "overlayfs"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:0b83d017db6efafadf6b3f18d087d2ce1d67d8f0e927dc7254b0ad088074cd3a",
+                "sha256:71aed3163e8e128a2b656c4be09920a9f5d69a9117d6b34b085aa551fc543857",
+                "sha256:dbae4ec0107016cc3d1b24d6de84893480f0e5cbe2ce7e31b0424cb1166ba2aa",
+                "sha256:3fdf4975225f0785401803a70964c0f33b59bf18998d6539a3415df82dde513e",
+                "sha256:59da9ef0a512614a31b599095fca07851f4342f3a98b6a941cda390d2fbc5c68",
+                "sha256:2901e26587203d561298de7b6300270c706a9f71bbc9b6dc7b1eed9491313ec2",
+                "sha256:6a94cd23ce8a0b06a5431615fbcade41e4941f61e21522eab96a23d539a14016",
+                "sha256:7a194b95941a598cbf0f714e15781a17032906291035b66a80c676691c4a9a0d",
+                "sha256:889f22d4e3438d693317559cb0b44b7e9887446b61199ae008f7b4fad3648cf6"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-22T16:26:23.900387802Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:2c6f6315d6fb53f9e187c9a187d4ecc034970dcac5eaab7f9a076973f06c7cfc",
+            "size": 856
+        },
         "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "appuser",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "8082/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
+            "Cmd": null,
+            "Entrypoint": [
+                "/app/docker-entrypoint.sh"
+            ],
             "Env": [
                 "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
                 "RUST_LOG=info",
@@ -53,45 +56,14 @@
                 "APP_VERSION=1.0.0",
                 "DEPLOYMENT_ENVIRONMENT=production"
             ],
-            "Cmd": null,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "/app",
-            "Entrypoint": [
-                "/app/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": null
-        },
-        "Architecture": "arm64",
-        "Os": "linux",
-        "Size": 40659741,
-        "VirtualSize": 40659741,
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/iic6frokpbp2i0ahc4zwfa3r1/diff:/var/lib/docker/overlay2/gx2pz0l7lwg8eu3knqwt8tmli/diff:/var/lib/docker/overlay2/10l682fuhx6zhhkhbhjq160go/diff:/var/lib/docker/overlay2/ppol693brtmz8r0auij7np10e/diff:/var/lib/docker/overlay2/n715lo5k79bcpcf01q5d1td8t/diff:/var/lib/docker/overlay2/5t7v6uaiqao3t3pfu85kym2gf/diff:/var/lib/docker/overlay2/ooqben62e5u9iptib01vnhgc5/diff:/var/lib/docker/overlay2/3af8572961fd989f8126a424f97295f12f01aa25bcf8282d496e94db18a2c214/diff",
-                "MergedDir": "/var/lib/docker/overlay2/54wk2qdnd54shzghrgydto1os/merged",
-                "UpperDir": "/var/lib/docker/overlay2/54wk2qdnd54shzghrgydto1os/diff",
-                "WorkDir": "/var/lib/docker/overlay2/54wk2qdnd54shzghrgydto1os/work"
+            "ExposedPorts": {
+                "8082/tcp": {}
             },
-            "Name": "overlay2"
-        },
-        "RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:0b83d017db6efafadf6b3f18d087d2ce1d67d8f0e927dc7254b0ad088074cd3a",
-                "sha256:56208546052405e19128c24adcd51484a8e6fc42fe1e83da6ca27bdd5cb0dc3c",
-                "sha256:ea5a9544c4be31c46f9b6508f19dbb1af0695e478aea3da30a3c0bfb4cfbe994",
-                "sha256:a69c1933a0d3fc456f42a48d85093aad300d7eee733aa314a721d15bc7f49d95",
-                "sha256:36d92bc4301f63c6b057ab6914d844c6b3e13dc137bf7fe02591c14abe7e7a3c",
-                "sha256:92bd1cfcdd552db8822c6705f574647e548a7cefa09995b928ff0d0def1bd185",
-                "sha256:7547484ee854b85134db133ed96480f9a34de49193114d8150af58f67bb5a9b2",
-                "sha256:402cf7a100e6b1983ab5636f7136ffe776fb2bb2ddeb847de7fd411e5bd46e27",
-                "sha256:27bfc5bfcc5091dd54012d4a777aa96faa619d13f78ff7b6d4fd745a470119dc"
-            ]
-        },
-        "Metadata": {
-            "LastTagTime": "2025-07-21T19:19:54.427972384Z"
+            "Labels": null,
+            "OnBuild": null,
+            "User": "appuser",
+            "Volumes": null,
+            "WorkingDir": "/app"
         }
     }
 ]

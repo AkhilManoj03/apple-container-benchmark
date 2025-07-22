@@ -1,93 +1,64 @@
 [
     {
-        "Id": "sha256:235979d9ae3e5915c796582f68b0f6bdcb0c03316522ad85a487f4e3f07427ad",
+        "Id": "sha256:6cb6d39dca0f92756c0718ae0c12c654d764ad9d536483b12582d45fa11bc650",
         "RepoTags": [
-            "rust-axum:benchmark-amd64",
             "go-gin:benchmark-amd64"
         ],
-        "RepoDigests": [],
+        "RepoDigests": [
+            "go-gin@sha256:6cb6d39dca0f92756c0718ae0c12c654d764ad9d536483b12582d45fa11bc650"
+        ],
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
-        "Created": "2025-07-21T18:56:36.083072292Z",
-        "Container": "",
-        "ContainerConfig": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": null,
-            "Cmd": null,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
+        "Created": "2025-07-22T16:21:33.821252126Z",
         "DockerVersion": "",
         "Author": "",
-        "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "appuser",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "8080/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
-                "OTEL_SERVICE_NAME=recommendation-service"
-            ],
-            "Cmd": [
-                "./app"
-            ],
-            "ArgsEscaped": true,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "/app",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
         "Architecture": "amd64",
         "Os": "linux",
-        "Size": 27278569,
-        "VirtualSize": 27278569,
+        "Size": 11218644,
         "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/brr3m8dybvzshrnf14fsot74x/diff:/var/lib/docker/overlay2/2tnj6yy3wamndhst9lom76he1/diff:/var/lib/docker/overlay2/10158qqhe7715501kswsqe3kn/diff:/var/lib/docker/overlay2/xbf13nvgufvp4hb62b0zl5jj3/diff:/var/lib/docker/overlay2/l8ggm4k1bwq7wd0pvxilh7e2j/diff:/var/lib/docker/overlay2/ttp1r7ezsnmks3kb4vkjmjzmk/diff:/var/lib/docker/overlay2/93e1e4fd448b3643f6329c9169ea011c5d98e0b0204d43ff558c6bc293ad3c12/diff",
-                "MergedDir": "/var/lib/docker/overlay2/j64gin8mufw7o508ys7150ime/merged",
-                "UpperDir": "/var/lib/docker/overlay2/j64gin8mufw7o508ys7150ime/diff",
-                "WorkDir": "/var/lib/docker/overlay2/j64gin8mufw7o508ys7150ime/work"
-            },
-            "Name": "overlay2"
+            "Data": null,
+            "Name": "overlayfs"
         },
         "RootFS": {
             "Type": "layers",
             "Layers": [
                 "sha256:fd2758d7a50e2b78d275ee7d1c218489f2439084449d895fa17eede6c61ab2c4",
-                "sha256:80140247057e14e4ebb19c10aabebb6baa2c0dda21f281cc5a4d1bc0a4908d34",
-                "sha256:92a2339b0e6b9602a4d08aeedfbf4950c930ab056b5ac9dadea24b276833dc26",
-                "sha256:4ede21760f007f6caf298af755a8a4015249868bf729a8660ec8231aac3f1e85",
-                "sha256:30e2f43c98dc2948eb2e8ac2bdd166232dea0430a660819ddebe1f98ea495d94",
-                "sha256:951b3f78d655cbee9807bb4ce5cb025b574555ec53986135c87f8b33218b9df2",
-                "sha256:6df022f3ce92098185d06ba367cb2b4d8c60cb57e228caadbe6500877dc946bd",
-                "sha256:0f02f90724097b9758bd7b1d15def5e1991b6545057a88aa6f79642cde06653a"
+                "sha256:7ffd21f68bbef4aee7f6a3cd5e210490635447abd47a90d884740679d57ef81a",
+                "sha256:bfda1c2a759659957ddd2d9ee5066f0b40e33c4d4b9ef6edcd264a8a17cd33d4",
+                "sha256:8ec891e48e125c368bf3a72faad2738bc65be05a23366855aaae7316bd78cc7b",
+                "sha256:052a8bf9acbf609760eb1f0d3f4aa63fb1194d21813598ec07020e37629bb31e",
+                "sha256:2ce1bb7effc7a5ad8e8bc946e9955e2ac66f09e3db2409f22b28a233e0c15bf5",
+                "sha256:3687c15466b0cfdeb1627c64bbb43b72d8845e0c7a4c607631de86e09ccd12dd",
+                "sha256:983461552865c1afb5a0c09da1d9081dee540f9bc9b454e5b64b126eb3532bb9"
             ]
         },
         "Metadata": {
-            "LastTagTime": "2025-07-21T18:59:14.912948255Z"
+            "LastTagTime": "2025-07-22T16:21:34.378549001Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:6cb6d39dca0f92756c0718ae0c12c654d764ad9d536483b12582d45fa11bc650",
+            "size": 856
+        },
+        "Config": {
+            "ArgsEscaped": true,
+            "Cmd": [
+                "./app"
+            ],
+            "Entrypoint": null,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
+                "OTEL_SERVICE_NAME=recommendation-service"
+            ],
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Labels": null,
+            "OnBuild": null,
+            "User": "appuser",
+            "Volumes": null,
+            "WorkingDir": "/app"
         }
     }
 ]

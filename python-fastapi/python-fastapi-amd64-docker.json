@@ -1,48 +1,57 @@
 [
     {
-        "Id": "sha256:964e34afc0b96a583e26ec8316b194da6f3cf179f5bd267276eb7adbf41850da",
+        "Id": "sha256:f87114004f32364006615622e543555b70b41d7d99d2277ba88bd56affe97982",
         "RepoTags": [
-            "python-fastapi:benchmark-amd64"
+            "product:benchmark-amd64"
         ],
-        "RepoDigests": [],
+        "RepoDigests": [
+            "product@sha256:f87114004f32364006615622e543555b70b41d7d99d2277ba88bd56affe97982"
+        ],
         "Parent": "",
         "Comment": "buildkit.dockerfile.v0",
-        "Created": "2025-07-21T19:11:52.873556508Z",
-        "Container": "",
-        "ContainerConfig": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": null,
-            "Cmd": null,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
+        "Created": "2025-07-22T16:08:56.340290464Z",
         "DockerVersion": "",
         "Author": "",
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 42010921,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "overlayfs"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+                "sha256:508c156eff11676c10dd89ddb3a17b0517d99a16cec59bbdb3ec94a6984028d4",
+                "sha256:34441ec4ebfd032d7fba664745b5e4fcf82faf84a1df9f832481f88e5d190e77",
+                "sha256:2412c25a801829108b8f2f2dc0923567853dad6fb1d701fa0522311379863ad3",
+                "sha256:1f9f63b2f4b743b727d7fd3b8230a7f3ace63e473dabea2f6479ade582993c78",
+                "sha256:83073e751b27082298c38e8287d2af6e77be0536e93ee2aa4c9d93c1bd05208d",
+                "sha256:b982df0f0bc7cc9e77e51eccc25d6d5ede603d284d7a2dc44e13c84f4267e79a",
+                "sha256:5c9cf76b1d020fe86c29ed26a9aa5c80264e8b78eec858e3e46be0fde7a29c67",
+                "sha256:c8e18ed2b5f30256f1e9c9f686c23b9c361c1f675520fe2a055eb01a9a4809e9"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2025-07-22T16:08:58.259922798Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:f87114004f32364006615622e543555b70b41d7d99d2277ba88bd56affe97982",
+            "size": 856
+        },
         "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "appuser",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "8000/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
+            "ArgsEscaped": true,
+            "Cmd": [
+                "uvicorn",
+                "main:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000"
+            ],
+            "Entrypoint": null,
             "Env": [
                 "PATH=/home/appuser/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
                 "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
@@ -55,51 +64,14 @@
                 "OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318/v1/traces",
                 "OTEL_TRACES_SAMPLER=always_on"
             ],
-            "Cmd": [
-                "uvicorn",
-                "main:app",
-                "--host",
-                "0.0.0.0",
-                "--port",
-                "8000"
-            ],
-            "ArgsEscaped": true,
-            "Image": "",
-            "Volumes": null,
-            "WorkingDir": "/app",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
-        },
-        "Architecture": "amd64",
-        "Os": "linux",
-        "Size": 116994814,
-        "VirtualSize": 116994814,
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/al985o5ups4g7ak2mmcotsted/diff:/var/lib/docker/overlay2/o7ljms2gsrayh2dnswd6t79eg/diff:/var/lib/docker/overlay2/6mljbm4g4xk8suzpx87cxqucn/diff:/var/lib/docker/overlay2/snf76v4255r5p2j6ev8ii401b/diff:/var/lib/docker/overlay2/23554df8da35f175bef277b13f4d15db5a572b5251e208b65384e7263747ddab/diff:/var/lib/docker/overlay2/6708d9bdea114d6e8627644dc807cfec554e9e6d8f9d44ff7a741b7a1bd7e2ec/diff:/var/lib/docker/overlay2/68a074d796942b7567c9d898026aedf4a4c57104518a7f7476885604eef1b3e8/diff:/var/lib/docker/overlay2/645d4895d56c6ab55cb79e268d79553203433bb620630f84ebd8513160d6d15c/diff",
-                "MergedDir": "/var/lib/docker/overlay2/fxwtdlxywm3o6wb4db5aj3a51/merged",
-                "UpperDir": "/var/lib/docker/overlay2/fxwtdlxywm3o6wb4db5aj3a51/diff",
-                "WorkDir": "/var/lib/docker/overlay2/fxwtdlxywm3o6wb4db5aj3a51/work"
+            "ExposedPorts": {
+                "8000/tcp": {}
             },
-            "Name": "overlay2"
-        },
-        "RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
-                "sha256:508c156eff11676c10dd89ddb3a17b0517d99a16cec59bbdb3ec94a6984028d4",
-                "sha256:34441ec4ebfd032d7fba664745b5e4fcf82faf84a1df9f832481f88e5d190e77",
-                "sha256:2412c25a801829108b8f2f2dc0923567853dad6fb1d701fa0522311379863ad3",
-                "sha256:3b9f3cc2f677f5cdad8071c879b379ad1bcf9652b3e6a26f92077927199bf732",
-                "sha256:2c831efaeaf84a272a6c03daa3bec1c5c83acb9f9aeb521189b693f54b62159d",
-                "sha256:e5d80b4ee67b2d5a242ad7c420d99c12d68b3111eae84fed4b11526003bb054e",
-                "sha256:b3d2665707f39787342c727b65bd7f9f3504eae4ab399652b2370b3c92f78f0f",
-                "sha256:6343dfb13e01913d3064af6f4b42c02c4ba5a1b0698d100b5d8751dc92a79057"
-            ]
-        },
-        "Metadata": {
-            "LastTagTime": "2025-07-21T19:11:53.172484383Z"
+            "Labels": null,
+            "OnBuild": null,
+            "User": "appuser",
+            "Volumes": null,
+            "WorkingDir": "/app"
         }
     }
 ]
