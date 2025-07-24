@@ -85,7 +85,6 @@ function initialize_container_tool() {
 		# Docker Desktop settings(5 CPUs, 8GB memory).
 		open -a Docker || { echo "error: Failed to open Docker Desktop." >&2; exit 1; }
 		echo "info: Waiting for Docker to start..."
-		sleep 10
 	elif [ "${CONTAINER_TOOL}" == "podman" ]; then
 		podman machine init \
 			--cpus "${MACHINE_CPUS}" \
@@ -173,7 +172,6 @@ function print_results() {
 	printf "  Lowest interval sum:  %.2f MB\n" "${MIN_MEM_OVERALL}"
 }
 
-
 function parse_args() {
 	# Parse -t or --tool argument
 	while [[ $# -gt 0 ]]; do
@@ -229,6 +227,8 @@ function main() {
 	fi
 
   initialize_container_tool
+	echo "info: giving container tool time to start..."
+	sleep 10
 
 	run_tests
 
