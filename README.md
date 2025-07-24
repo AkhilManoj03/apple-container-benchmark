@@ -42,3 +42,39 @@ Benchmark testing the Apple Container tool vs. Docker and Podman
 | Node-Express.js | 29.061 | 43.028 | 43.390 |
 | Go-Gin | 64.117 | 70.939 | 67.035 |
 | Rust-Axum | 600.306 | 650.814 | 619.163 |
+
+### Podman CPU and Memory Usage:
+
+CPU Usage (%):
+  Average of interval sums: 9.53
+  Highest interval sum: 66.20
+  Lowest interval sum:  1.20
+
+Memory Usage (MB):
+  Average of interval sums: 2095.06 MB
+  Highest interval sum: 2987.00 MB
+  Lowest interval sum:  880.00 MB
+
+### Docker CPU and Memory Usage:
+
+CPU Usage (%):
+  Average of interval sums: 33.40
+  Highest interval sum: 79.00
+  Lowest interval sum:  6.00
+
+Memory Usage (MB):
+  Average of interval sums: 1731.60 MB
+  Highest interval sum: 1899.00 MB
+  Lowest interval sum:  1504.00 MB
+
+### Apple Container CPU and Memory Usage:
+
+CPU Usage (%):
+  Average of interval sums: 26.30
+  Highest interval sum: 79.00
+  Lowest interval sum:  1.50
+
+Memory Usage (MB):
+  Average of interval sums: 1582.50 MB
+  Highest interval sum: 1899.00 MB
+  Lowest interval sum:  1344.00 MB
