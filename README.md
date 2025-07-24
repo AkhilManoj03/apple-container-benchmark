@@ -43,38 +43,118 @@ Benchmark testing the Apple Container tool vs. Docker and Podman
 | Go-Gin | 64.117 | 70.939 | 67.035 |
 | Rust-Axum | 600.306 | 650.814 | 619.163 |
 
+## CPU and Memory Usage Benchmark Results
+The following results are collected by running the [`run_test.sh`](./run_test.sh) script. The script
+runs the test container(`mysql:8.0`) in a loop for 15 iterations(2 seconds interval between each
+iteration) and collects the CPU and memory usage of the container tool.
+
 ### Podman CPU and Memory Usage:
 
 CPU Usage (%):
-  Average of interval sums: 9.53
-  Highest interval sum: 66.20
-  Lowest interval sum:  1.20
+ - Average of interval sums: 9.76
+ - Highest interval sum: 57.60
+ - Lowest interval sum:  2.30
 
 Memory Usage (MB):
-  Average of interval sums: 2095.06 MB
-  Highest interval sum: 2987.00 MB
-  Lowest interval sum:  880.00 MB
+ - Average of interval sums: 2354.60 MB
+ - Highest interval sum: 2358.00 MB
+ - Lowest interval sum:  2314.00 MB
 
 ### Docker CPU and Memory Usage:
 
 CPU Usage (%):
-  Average of interval sums: 33.40
-  Highest interval sum: 79.00
-  Lowest interval sum:  6.00
+ - Average of interval sums: 11.42
+ - Highest interval sum: 55.90
+ - Lowest interval sum:  3.30
 
 Memory Usage (MB):
-  Average of interval sums: 1731.60 MB
-  Highest interval sum: 1899.00 MB
-  Lowest interval sum:  1504.00 MB
+ - Average of interval sums: 1687.93 MB
+ - Highest interval sum: 1816.00 MB
+ - Lowest interval sum:  1558.00 MB
 
 ### Apple Container CPU and Memory Usage:
 
 CPU Usage (%):
-  Average of interval sums: 26.30
-  Highest interval sum: 79.00
-  Lowest interval sum:  1.50
+ - Average of interval sums: 6.77
+ - Highest interval sum: 54.30
+ - Lowest interval sum:  1.50
 
 Memory Usage (MB):
-  Average of interval sums: 1582.50 MB
-  Highest interval sum: 1899.00 MB
-  Lowest interval sum:  1344.00 MB
+ - Average of interval sums: 1251.93 MB
+ - Highest interval sum: 1466.00 MB
+ - Lowest interval sum:  1030.00 MB
+
+
+## Container Runtime Performance Benchmark
+
+Comprehensive performance comparison of container runtimes across different workload sizes using the
+[`run_test.sh`](./run_test.sh) script.
+
+### Methodology
+
+Each test monitors container performance over 15-30 intervals (2-second sampling) to capture startup,
+steady-state, and resource allocation patterns across different container runtimes.
+
+### Test Case 1: Small Workload
+#### MySQL 8.0 Container
+
+**Workload Profile:** Database service with moderate resource requirements
+
+#### Test Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| **Test Image** | `mysql:8.0` |
+| **Monitoring Intervals** | 15 iterations |
+| **Interval Duration** | 2 seconds |
+| **Resource Allocation** | 5 CPUs, 8GB RAM |
+
+#### Performance Summary
+
+| Runtime | Avg CPU (%) | Peak CPU (%) | Avg Memory (MB) | Peak Memory (MB)
+|---------|-------------|--------------|-----------------|------------------|
+| **Apple Container** | 6.77 | 54.30 | 1,252 | 1,466 |
+| **Docker** | 11.42 | 55.90 | 1,688 | 1,816 |
+| **Podman** | 9.76 | 57.60 | 2,355 | 2,358 |
+
+### Test Case 2: Heavy Workload  
+#### GitLab CE 18.2.0 Container
+
+**Workload Profile:** Full-featured DevOps platform with high resource demands
+
+#### Test Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| **Test Image** | `gitlab/gitlab-ce:18.2.0-ce.0` |
+| **Monitoring Intervals** | 30 iterations |
+| **Interval Duration** | 2 seconds |
+| **Resource Allocation** | 5 CPUs, 8GB RAM |
+
+#### Performance Summary
+
+| Runtime | Avg CPU (%) | Peak CPU (%) | Avg Memory (MB) | Peak Memory (MB) |
+|---------|-------------|--------------|-----------------|------------------|
+| **Apple Container** | 95.54 | 185.90 | 2,700 | 4,396 |
+| **Docker** | 83.29 | 178.00 | 3,388 | 4,967 |
+| **Podman** | 91.22 | 179.80 | 7,194 | 8,196 |
+
+### Test Case 3: Multi-Container Workload
+#### Nginx, Redis, and Postgres Containers
+
+**Workload Profile:** Web server, cache, and database services
+
+#### Test Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| **Test Image** | `nginx:1.28.0`, `redis:8.0.0`, `postgres:17.5` |
+| **Monitoring Intervals** | 15 iterations |
+| **Interval Duration** | 2 seconds |
+| **Resource Allocation** | N/A(Let the container tool decide for multi-container workload) |
+
+| Runtime | Avg CPU (%) | Peak CPU (%) | Avg Memory (MB) | Peak Memory (MB) |
+|---------|-------------|--------------|-----------------|------------------|
+| **Apple Container** | 1.72 | 4.80 | 925.60 | 1,160 |
+| **Docker** | 8.24 | 17.50 | 1468.33 | 1,601 |
+| **Podman** | 2.69 | 4.80 | 1893.00 | 1,893 |
