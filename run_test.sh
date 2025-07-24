@@ -10,6 +10,12 @@
 # Options:
 #   -e, --engine: Container tool to use (container, docker, podman)
 #   -t, --test-type: Test type to run (small, large, multi)
+#
+# Requirements:
+#   - bash(4.0)
+#   - ripgrep
+#   - bc
+#   - container-tool (container, docker, podman)
 
 # --- Configuration ---
 readonly TOP_ITERATIONS_LARGE=30
