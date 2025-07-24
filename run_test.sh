@@ -20,7 +20,9 @@
 # --- Configuration ---
 readonly TOP_ITERATIONS_LARGE=30
 readonly TOP_ITERATIONS_DEFAULT=15
+readonly DEFAULT_TEST_TYPE="small"
 readonly TOP_SLEEP_INTERVAL=2
+readonly TOP_SNAPSHOT_INTERVAL=2
 readonly OUTPUT_STATS="pid,command,cpu,mem,time"
 readonly OUTPUT_FILTER="com\.apple\.Virtu|docker"
 
@@ -40,9 +42,8 @@ declare -A TEST_IMAGE_MULTI=(
 
 CONTAINER_TOOL=""
 TOP_LOG_FILE=""
-DEFAULT_TEST_TYPE="small"
 TEST_TYPE=""
-TOP_ITERATIONS=15
+TOP_ITERATIONS=""
 
 MIN_CPU_OVERALL=1000000.0
 MAX_CPU_OVERALL=0.0
@@ -180,7 +181,7 @@ function print_results() {
 }
 
 function parse_args() {
-	# Parse -t or --tool argument
+	# Parse -e or --engine and -t or --test-type arguments
 	while [[ $# -gt 0 ]]; do
 		case "${1}" in
 			-e|--engine)
@@ -241,8 +242,7 @@ function main() {
 
 	for i in $(seq 1 "${TOP_ITERATIONS}"); do
     echo "--- Collecting interval ${i} of ${TOP_ITERATIONS} ---"
-
-		top -l 2 -s 2 -stats ${OUTPUT_STATS} -o cpu | \
+		top -l "${TOP_SNAPSHOT_INTERVAL}" -s "${TOP_SLEEP_INTERVAL}" -stats ${OUTPUT_STATS} -o cpu | \
 			rg -i "${OUTPUT_FILTER}" | \
 			rg -v " 0\.0 " \
 			>> "${TOP_LOG_FILE}" || { echo "error: Failed to collect data." >&2; exit 1; }
