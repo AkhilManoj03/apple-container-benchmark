@@ -12,7 +12,8 @@
 #   -t, --test-type: Test type to run (small, large, multi)
 
 # --- Configuration ---
-readonly TOP_ITERATIONS=5
+readonly TOP_ITERATIONS_LARGE=30
+readonly TOP_ITERATIONS_DEFAULT=15
 readonly TOP_SLEEP_INTERVAL=2
 readonly OUTPUT_STATS="pid,command,cpu,mem,time"
 readonly OUTPUT_FILTER="com\.apple\.Virtu|docker"
@@ -35,6 +36,7 @@ CONTAINER_TOOL=""
 TOP_LOG_FILE=""
 DEFAULT_TEST_TYPE="small"
 TEST_TYPE=""
+TOP_ITERATIONS=15
 
 MIN_CPU_OVERALL=1000000.0
 MAX_CPU_OVERALL=0.0
@@ -207,6 +209,9 @@ function parse_args() {
   esac
 
 	[ -z "${TEST_TYPE}" ] && TEST_TYPE="${DEFAULT_TEST_TYPE}"
+
+	# For large workload, we need more iterations to get a more stable result, else use the default.
+	[ "${TEST_TYPE}" == "large" ] && TOP_ITERATIONS="${TOP_ITERATIONS_LARGE}" || TOP_ITERATIONS="${TOP_ITERATIONS_DEFAULT}"
 }
 
 function main() {
