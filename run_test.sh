@@ -2,13 +2,14 @@
 #
 # This script is used to run a test container and collect CPU and memory usage.
 #
-# Usage:
-#   ./run_test.sh -t container
-#   ./run_test.sh -t docker
-#   ./run_test.sh -t podman
+# Usage examples:
+#   ./run_test.sh -e container -t small
+#   ./run_test.sh -e docker -t large
+#   ./run_test.sh -e podman -t multi
 #
 # Options:
-#   -t, --tool: Container tool to use (container, docker, podman)
+#   -e, --engine: Container tool to use (container, docker, podman)
+#   -t, --test-type: Test type to run (small, large, multi)
 
 # --- Configuration ---
 readonly TOP_ITERATIONS=5
@@ -22,10 +23,18 @@ readonly MACHINE_CPUS=5
 readonly MACHINE_MEMORY_GB="8g"
 readonly MACHINE_MEMORY_MB=8192
 
-readonly TEST_IMAGE="mysql:8.0"
+readonly TEST_IMAGE_SMALL="mysql:8.0"
+readonly TEST_IMAGE_LARGE="gitlab/gitlab-ce:18.2.0-ce.0"
+declare -A TEST_IMAGE_MULTI=(
+	["nginx"]="nginx:1.28.0"
+	["redis"]="redis:8.0.0"
+	["postgres"]="postgres:17.5"
+)
 
 CONTAINER_TOOL=""
 TOP_LOG_FILE=""
+DEFAULT_TEST_TYPE="small"
+TEST_TYPE=""
 
 MIN_CPU_OVERALL=1000000.0
 MAX_CPU_OVERALL=0.0
@@ -87,6 +96,52 @@ function initialize_container_tool() {
 	fi
 }
 
+function run_tests() {
+	if [ "${TEST_TYPE}" == "small" ]; then
+		${CONTAINER_TOOL} run \
+			--detach \
+			--cpus "${MACHINE_CPUS}" \
+			--memory "${MACHINE_MEMORY_GB}" \
+			--name benchmark-${CONTAINER_TOOL}-${TEST_TYPE} \
+			--env MYSQL_ROOT_PASSWORD=test \
+			--env MYSQL_DATABASE=testdb \
+			${TEST_IMAGE_SMALL} || { echo "error: Failed to run benchmark ${TEST_TYPE} container." >&2; exit 1; }
+	elif [ "${TEST_TYPE}" == "large" ]; then
+		${CONTAINER_TOOL} run \
+			--detach \
+			--cpus "${MACHINE_CPUS}" \
+			--memory "${MACHINE_MEMORY_GB}" \
+			--name benchmark-${CONTAINER_TOOL}-${TEST_TYPE} \
+			--env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'" \
+			${TEST_IMAGE_LARGE} || { echo "error: Failed to run benchmark ${TEST_TYPE} container." >&2; exit 1; }
+		echo "info: Waiting 30 seconds for ${TEST_TYPE} container to start..."
+		sleep 30
+	elif [ "${TEST_TYPE}" == "multi" ]; then
+		# Don't set cpus and memory for multi-container test, let the container tool decide.
+		${CONTAINER_TOOL} run \
+			--detach \
+			--name benchmark-${CONTAINER_TOOL}-${TEST_TYPE}-postgres \
+			--env POSTGRES_PASSWORD=test \
+			--env POSTGRES_DB=testdb \
+			${TEST_IMAGE_MULTI["postgres"]} || { echo "error: Failed to run benchmark ${TEST_TYPE} container." >&2; exit 1; }
+		sleep 3
+		${CONTAINER_TOOL} run \
+			--detach \
+			--name benchmark-${CONTAINER_TOOL}-${TEST_TYPE}-nginx \
+			--env NGINX_PORT=8080:80 \
+			${TEST_IMAGE_MULTI["nginx"]} || { echo "error: Failed to run benchmark ${TEST_TYPE} container." >&2; exit 1; }
+		sleep 3
+		${CONTAINER_TOOL} run \
+			--detach \
+			--name benchmark-${CONTAINER_TOOL}-${TEST_TYPE}-redis \
+			--env REDIS_PORT=6379 \
+			${TEST_IMAGE_MULTI["redis"]} || { echo "error: Failed to run benchmark ${TEST_TYPE} container." >&2; exit 1; }
+	else
+		echo "error: Invalid test type: '${TEST_TYPE}'" >&2
+		exit 1
+	fi
+}
+
 function stop_container_tool() {
 	if [ "${CONTAINER_TOOL}" == "container" ]; then
 		container stop --all || true
@@ -120,13 +175,13 @@ function print_results() {
 function parse_args() {
 	# Parse -t or --tool argument
 	while [[ $# -gt 0 ]]; do
-		case "$1" in
-			-t)
+		case "${1}" in
+			-e|--engine)
 				CONTAINER_TOOL="${2}"
 				shift 2
 				;;
-			--tool)
-				CONTAINER_TOOL="${2}"
+			-t|--test-type)
+				TEST_TYPE="${2}"
 				shift 2
 				;;
 			*)
@@ -150,6 +205,8 @@ function parse_args() {
       exit 1
       ;;
   esac
+
+	[ -z "${TEST_TYPE}" ] && TEST_TYPE="${DEFAULT_TEST_TYPE}"
 }
 
 function main() {
@@ -168,15 +225,7 @@ function main() {
 
   initialize_container_tool
 
-	# Run the test container
-	${CONTAINER_TOOL} run \
-		--detach \
-		--cpus "${MACHINE_CPUS}" \
-		--memory "${MACHINE_MEMORY_GB}" \
-		--name benchmark-${CONTAINER_TOOL} \
-		--env MYSQL_ROOT_PASSWORD=test \
-		--env MYSQL_DATABASE=testdb \
-		${TEST_IMAGE} || { echo "error: Failed to run benchmark container." >&2; exit 1; }
+	run_tests
 
 	for i in $(seq 1 "${TOP_ITERATIONS}"); do
     echo "--- Collecting interval ${i} of ${TOP_ITERATIONS} ---"
