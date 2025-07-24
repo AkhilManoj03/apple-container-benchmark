@@ -150,7 +150,8 @@ function stop_container_tool() {
 		container system stop || true
 	elif [ "${CONTAINER_TOOL}" == "docker" ]; then
 		docker container stop "$(docker container ls --quiet)" 2>/dev/null || true
-		docker container rm "$(docker ps --all --quiet)" 2>/dev/null || true
+		sleep 3
+		echo "y" | docker container prune 2>/dev/null || true
 		pkill -SIGHUP -f /Applications/Docker.app 'docker serve' || true
 	elif [ "${CONTAINER_TOOL}" == "podman" ]; then
 		podman machine stop || true
