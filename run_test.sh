@@ -205,7 +205,7 @@ function parse_args() {
 
 	case "${CONTAINER_TOOL}" in
     "container" | "docker" | "podman")
-      TOP_LOG_FILE="log-${CONTAINER_TOOL}.log"
+      TOP_LOG_FILE="/tmp/log-${CONTAINER_TOOL}.log"
       ;;
     *)
       echo "error: Invalid container tool: '${CONTAINER_TOOL}'. Must be 'container', 'docker', or 'podman'." >&2
@@ -265,8 +265,8 @@ function main() {
 			[[ "${current_interval_line_count}" -eq 0 ]] && continue
 
 			# Add the current interval data to the aggregated arrays
-			interval_aggregated_cpus+=("$(printf "%.2f" "$current_interval_cpu_sum")")
-			interval_aggregated_mems+=("$(printf "%.2f" "$current_interval_mem_sum")")
+			interval_aggregated_cpus+=("$(printf "%.2f" "${current_interval_cpu_sum}")")
+			interval_aggregated_mems+=("$(printf "%.2f" "${current_interval_mem_sum}")")
 
 			# Reset for the next interval
 			current_interval_cpu_sum=0.0
@@ -294,6 +294,8 @@ function main() {
 		echo "error: No interval data found"
 		exit 1
 	fi
+
+	local cpu_sum mem_sum
 
 	for i in "${!interval_aggregated_cpus[@]}"; do
 		cpu_sum="${interval_aggregated_cpus[i]}"
