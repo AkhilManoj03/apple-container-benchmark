@@ -43,48 +43,6 @@ Benchmark testing the Apple Container tool vs. Docker and Podman
 | Go-Gin | 64.117 | 70.939 | 67.035 |
 | Rust-Axum | 600.306 | 650.814 | 619.163 |
 
-## CPU and Memory Usage Benchmark Results
-The following results are collected by running the [`run_test.sh`](./run_test.sh) script. The script
-runs the test container(`mysql:8.0`) in a loop for 15 iterations(2 seconds interval between each
-iteration) and collects the CPU and memory usage of the container tool.
-
-### Podman CPU and Memory Usage:
-
-CPU Usage (%):
- - Average of interval sums: 9.76
- - Highest interval sum: 57.60
- - Lowest interval sum:  2.30
-
-Memory Usage (MB):
- - Average of interval sums: 2354.60 MB
- - Highest interval sum: 2358.00 MB
- - Lowest interval sum:  2314.00 MB
-
-### Docker CPU and Memory Usage:
-
-CPU Usage (%):
- - Average of interval sums: 11.42
- - Highest interval sum: 55.90
- - Lowest interval sum:  3.30
-
-Memory Usage (MB):
- - Average of interval sums: 1687.93 MB
- - Highest interval sum: 1816.00 MB
- - Lowest interval sum:  1558.00 MB
-
-### Apple Container CPU and Memory Usage:
-
-CPU Usage (%):
- - Average of interval sums: 6.77
- - Highest interval sum: 54.30
- - Lowest interval sum:  1.50
-
-Memory Usage (MB):
- - Average of interval sums: 1251.93 MB
- - Highest interval sum: 1466.00 MB
- - Lowest interval sum:  1030.00 MB
-
-
 ## Container Runtime Performance Benchmark
 
 Comprehensive performance comparison of container runtimes across different workload sizes using the
